@@ -12,7 +12,7 @@ class PostgresAdapter implements IConnection {
     }
 
     public function connection(){
-        $this->postgres->connectionpostgres();
+        $this->postgres->connectionPostgres();
     }
 
     public function mostrar(){

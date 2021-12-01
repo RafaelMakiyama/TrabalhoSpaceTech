@@ -12,7 +12,7 @@ class MongoAdapter implements IConnection {
     }
 
     public function connection(){
-        $this->mongo->connectionmongo();
+        $this->mongo->connectionMongo();
     }
 
     public function mostrar(){
