@@ -4,7 +4,7 @@ require_once('../autoload.php');
 
 class Mysql {
 
-    function connection(){
+    function connectionMySql(){
         echo "Connectado com o MYSQL";
     }
 
