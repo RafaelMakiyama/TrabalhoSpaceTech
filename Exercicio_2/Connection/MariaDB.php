@@ -4,7 +4,7 @@ require_once('../autoload.php');
 
 class MariaDB {
 
-    function connectionMySql(){
+    function connection(){
         echo "Connectado com o MariaDB";
     }
 
