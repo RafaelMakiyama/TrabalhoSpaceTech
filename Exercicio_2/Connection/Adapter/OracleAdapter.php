@@ -12,7 +12,7 @@ class OracleAdapter implements IConnection {
     }
 
     public function connection(){
-        $this->oracle->connectionoracle();
+        $this->oracle->connectionOracle();
     }
 
     public function mostrar(){
