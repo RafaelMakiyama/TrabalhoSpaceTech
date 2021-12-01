@@ -1,5 +1,5 @@
 <?php
-require_once('../../autoload.php');
+require_once '../../autoload.php';
 
 
 class PostgresAdapter implements IConnection {
@@ -12,7 +12,7 @@ class PostgresAdapter implements IConnection {
     }
 
     public function connection(){
-        $this->postgres->connectionPostgres();
+        $this->postgres->connection();
     }
 
     public function mostrar(){

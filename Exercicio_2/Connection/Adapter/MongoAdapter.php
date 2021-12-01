@@ -1,5 +1,5 @@
 <?php
-require_once('../../autoload.php');
+require_once '../../autoload.php';
 
 
 class MongoAdapter implements IConnection {
@@ -12,7 +12,7 @@ class MongoAdapter implements IConnection {
     }
 
     public function connection(){
-        $this->mongo->connectionMongo();
+        $this->mongo->connection();
     }
 
     public function mostrar(){

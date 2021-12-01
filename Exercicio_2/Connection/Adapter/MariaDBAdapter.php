@@ -1,5 +1,6 @@
 <?php
-require_once('../../autoload.php');
+
+require_once '../../autoload.php';
 class MariaDBAdapter implements IConnection{
 
   private $mariaDB;
@@ -10,9 +11,8 @@ class MariaDBAdapter implements IConnection{
 
   public function connection()
   {
-    $this->mariaDB->connectionMariaDB();
+    $this->mariaDB->connection();
   }
-
 
   public function mostrar(){
     $this->mariaDB->mostrar();
