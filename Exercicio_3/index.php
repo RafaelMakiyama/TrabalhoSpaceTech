@@ -32,7 +32,7 @@
 
         public function setSaldo($saldo)
         {
-            $this->saldo = $saldo;
+            $this->saldo += $saldo;
         }
 
     }
@@ -42,11 +42,10 @@
         private $correntista;
         private $valor;
 
-        public function __construct($correntista, float $valor)
+        public function __construct($correntista, $valor)
         {
             $this->correntista = $correntista;
             $this->valor = $valor;
-            
         }
 
         public function getCPFCorrentista()
@@ -56,11 +55,7 @@
 
         public function getValorMovimento()
         {
-            if($this->valor < 0) {
-                return 'debito';
-            }
-
-            return 'credito';
+            return $this->valor;
         }
     }
 
@@ -68,20 +63,22 @@
     {
         public function encontraCorrentista($todosCorrentistas = [], $cpfProcurado)
         {
-            return array_search($cpfProcurado,$todosCorrentistas);
+            foreach($todosCorrentistas as $correntista) {
+                if($correntista->getCPFCliente() == $cpfProcurado) {
+                    return $correntista;
+                }
+            }
         }
     }
 
-    $c1 = new Correntista(rand(10000000,999999999), '2.00');
-    $c2 = new Correntista(rand(10000000,999999999), '5.00');
-    $c3 = new Correntista(rand(10000000,999999999), '10.00');
+    $c1 = new Correntista('123.456.789-00', '2.00');
+    $c2 = new Correntista('987.654.321-00', '5.00');
+    $c3 = new Correntista('134.596.609-10', '10.00');
 
     $correntistas = [$c1, $c2, $c3];
 
     $m1 = new Movimentacao($c1, '500.71');
     $m2 = new Movimentacao($c2, '912.85');
-
-    echo 'oi';
 
     $movimentacaoConta = [$m1, $m2];
 
@@ -93,23 +90,18 @@
 
     function movimentarConta($correntistas = [], $movimentacaoConta = [], $operacao)
     {
-        var_dump('aqui');
-    //     foreach($movimentacaoConta as $movimentacao) {
 
-    //         echo "$movimentacao <br>";
+        foreach($movimentacaoConta as $movimentacao) {
 
+            $correntista = $operacao->encontraCorrentista($correntistas, $movimentacao->getCPFCorrentista());
+            $correntista->setSaldo($movimentacao->getValorMovimento());
 
-    //         // $arquivo = fopen("gerentes.txt", "c+");
-    //         // $gerentes = file_get_contents("gerentes.txt");
-    //         // $gerentes = json_decode($gerentes, true);
-    //         // $gerentes[] = $gerente;
-    //         // $objeto = json_encode($gerentes);                        
-    //         // fwrite($arquivo, $objeto);
-    //         // fclose($arquivo);
+            $arquivo = fopen($correntista->getCPFCliente() . ".txt", "w+");
+            fwrite($arquivo, serialize($correntista));
+            fclose($arquivo);
 
+        }
 
-
-    //     }
     }
 
 
