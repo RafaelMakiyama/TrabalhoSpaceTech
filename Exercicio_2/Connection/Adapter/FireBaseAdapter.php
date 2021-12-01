@@ -1,16 +1,16 @@
 <?php
-require_once('../../autoload.php');
+require_once '../../autoload.php';
 class FireBaseAdapter implements IConnection{
 
   private $firebase;
 
-  public function __construct(FireBaseAdapter $firebase){
+  public function __construct(Firebase $firebase){
     $this->firebase = $firebase;
   }
 
   public function connection()
   {
-    $this->firebase->connectionFireBase();
+    $this->firebase->connection();
   }
 
 

@@ -1,5 +1,5 @@
 <?php
-require_once('../../autoload.php');
+require_once '../../autoload.php';
 
 
 class OracleAdapter implements IConnection {
@@ -12,7 +12,7 @@ class OracleAdapter implements IConnection {
     }
 
     public function connection(){
-        $this->oracle->connectionOracle();
+        $this->oracle->connection();
     }
 
     public function mostrar(){

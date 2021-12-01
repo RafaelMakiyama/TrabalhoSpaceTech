@@ -4,7 +4,7 @@ require_once('../autoload.php');
 
 class Mongo {
 
-    function connectionMongo(){
+    function connection(){
         echo "Connectado com o Mongo";
     }
 

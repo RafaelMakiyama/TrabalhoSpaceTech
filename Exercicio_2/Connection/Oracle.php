@@ -4,7 +4,7 @@ require_once('../autoload.php');
 
 class Oracle {
 
-    function connectionOracle(){
+    function connection(){
         echo "Connectado com o Oracle";
     }
 

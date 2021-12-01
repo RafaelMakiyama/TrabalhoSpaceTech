@@ -4,7 +4,7 @@ require_once('../autoload.php');
 
 class Postgres {
 
-    function connectionPostgres(){
+    function connection(){
         echo "Connectado com o Postgres";
     }
 

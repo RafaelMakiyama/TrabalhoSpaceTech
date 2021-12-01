@@ -1,5 +1,5 @@
 <?php
-require_once('../../autoload.php');
+require_once '../../autoload.php';
 
 
 class MySqlAdapter implements IConnection {
@@ -12,7 +12,7 @@ class MySqlAdapter implements IConnection {
     }
 
     public function connection(){
-        $this->mysql->connectionMySql();
+        $this->mysql->connection();
     }
 
     public function mostrar(){
