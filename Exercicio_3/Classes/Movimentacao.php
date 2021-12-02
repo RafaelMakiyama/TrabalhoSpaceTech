@@ -5,7 +5,7 @@ class Movimentacao implements MovimentoConta{
     private $correntista;
     private $valor;
 
-    public function __construct($correntista, $valor)
+    public function __construct(Correntista $correntista,float $valor)
     {
         $this->correntista = $correntista;
         $this->valor = $valor;
