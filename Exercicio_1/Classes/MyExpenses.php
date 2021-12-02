@@ -1,10 +1,16 @@
 <?php 
 class MyExpenses
 {
-    public $cpf;
+    private $nome;
+    private $cpf;
+    private $despesas;
+    
 
-    public function __construct($cpf)
+    public function __construct($nome, $cpf,  array $despesas)
     {
+      $this->nome = $nome;
+      $this->cpf = $cpf;
+      $this->despesas = $despesas;
     }
 
     public function getCpf(){
@@ -13,11 +19,25 @@ class MyExpenses
 
     public function totalizaMes(int $mes)
     {
-      //soma despesas
-    }
+      $valor=0;
+      foreach($this->despesas as $despesa){
+        if($despesa->getMes() == $mes){          
+          $valor+= $despesa->getValor();
+        }
+      }
 
-    public function GravaInfos()
-    {
+      $despesaMes = new DespesaMes( $mes, $valor);
+      return $despesaMes; 
       
     }
+
+    public function gravaInfos(DespesaMes $despesaMes)
+    {
+      $arquivo = fopen("{$this->nome}.txt", "w+");
+            fwrite($arquivo, serialize($despesaMes));
+            fclose($arquivo);
+
+      echo "Arquivo do {$this->nome} criado com sucesso!!";
+    }
+    
 }
