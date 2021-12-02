@@ -1,5 +1,4 @@
 <?php 
-
 class MyExpenses
 {
     public $cpf;
@@ -19,6 +18,6 @@ class MyExpenses
 
     public function GravaInfos()
     {
-
+      
     }
 }
