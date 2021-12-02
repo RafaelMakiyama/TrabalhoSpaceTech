@@ -1,11 +1,15 @@
 <?php
+require_once('DespesaDia.php');
+use DespesaMes as GlobalDespesaMes;
 
 class DespesaMes{
     private int $mes;
     private float $valor;
     
     public function DespesaMes (int $mes, float $valor){
-        $this->mes = $mes;
+
+    // $this->mes = $mes;
+        Parent::class($mes,$valor);
        $this->valor = $valor;
 
     }
