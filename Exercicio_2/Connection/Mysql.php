@@ -1,15 +1,12 @@
 <?php
-
-require_once('../autoload.php');
-
 class Mysql {
 
     function connection(){
-        echo "Connectado com o MYSQL";
+        echo "Conectado com o MYSQL";
     }
 
     function mostrar(){
-        return " está conectado com o MYSQL";
+        echo ", está conectado com o MYSQL.<br>";
     }
 
 }

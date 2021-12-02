@@ -1,7 +1,4 @@
 <?php
-require_once '../../autoload.php';
-
-
 class PostgresAdapter implements IConnection {
 
     private $postgres;

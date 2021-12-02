@@ -1,16 +1,12 @@
 <?php 
-
-
-require_once('../autoload.php');
-
 class Firebase {
 
     function connection(){
-        echo "Connectado com o Firebase";
+        echo "Conectado com o Firebase";
     }
 
     function mostrar(){
-        return " está conectado com o Firebase";
+        echo ", está conectado com o Firebase.<br>";
     }
 
 }

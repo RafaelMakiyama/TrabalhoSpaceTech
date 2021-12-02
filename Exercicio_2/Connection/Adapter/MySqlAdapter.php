@@ -1,7 +1,4 @@
 <?php
-require_once '../../autoload.php';
-
-
 class MySqlAdapter implements IConnection {
 
     private $mysql;

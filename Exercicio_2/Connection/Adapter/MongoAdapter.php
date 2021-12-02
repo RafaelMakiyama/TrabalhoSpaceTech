@@ -1,7 +1,4 @@
 <?php
-require_once '../../autoload.php';
-
-
 class MongoAdapter implements IConnection {
 
     private $mongo;
