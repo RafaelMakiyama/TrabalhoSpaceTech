@@ -23,6 +23,9 @@ require_once 'autoload.php';
             fwrite($arquivo, serialize($correntista));
             fclose($arquivo);
 
+            echo "Arquivo do {$correntista->getCPFCliente()} criado com sucesso!! <br>";
+
         }
+        
     }
 ?>
