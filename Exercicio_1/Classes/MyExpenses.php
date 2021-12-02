@@ -1,12 +1,9 @@
 <?php 
 class MyExpenses
 {
-    private $nome;
-    private $cpf;
-    private $despesas;
+    private $nome, $cpf, $despesas;
     
-
-    public function __construct($nome, $cpf,  array $despesas)
+    public function __construct(String $nome, String $cpf, array $despesas)
     {
       $this->nome = $nome;
       $this->cpf = $cpf;
@@ -28,15 +25,13 @@ class MyExpenses
 
       $despesaMes = new DespesaMes( $mes, $valor);
       return $despesaMes; 
-      
     }
 
     public function gravaInfos(DespesaMes $despesaMes)
     {
       $arquivo = fopen("{$this->nome}.txt", "w+");
-            fwrite($arquivo, serialize($despesaMes));
-            fclose($arquivo);
-
+      fwrite($arquivo, serialize($despesaMes));
+      fclose($arquivo);
       echo "Arquivo do {$this->nome} criado com sucesso!!";
     }
     

@@ -3,8 +3,8 @@
 class DespesaDia extends DespesaMes{
     private int $dia;
     
-    public function __construct(int $dia, int $mes, float $valor){
-        
+    public function __construct(int $dia, int $mes, float $valor)
+    {
         parent::__construct($mes, $valor);
         $this->dia= $dia;
     }
@@ -12,8 +12,7 @@ class DespesaDia extends DespesaMes{
     public function getDia()
     {
         return $this->dia;
-    }
-    
+    }    
 
     public function getMes(){
         return parent::getMes();
@@ -23,8 +22,6 @@ class DespesaDia extends DespesaMes{
         return parent::getValor();
     }
 
-} 
-
-
+}
 
 ?>
