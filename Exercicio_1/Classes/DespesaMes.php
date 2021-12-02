@@ -6,11 +6,10 @@ class DespesaMes{
     private int $mes;
     private float $valor;
     
-    public function DespesaMes (int $mes, float $valor){
+    public function __construct (int $mes, float $valor){
 
-    // $this->mes = $mes;
-        Parent::class($mes,$valor);
-       $this->valor = $valor;
+    $this->mes = $mes;   
+     $this->valor = $valor;
 
     }
 
