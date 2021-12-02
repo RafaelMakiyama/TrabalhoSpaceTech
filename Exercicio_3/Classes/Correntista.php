@@ -5,7 +5,7 @@ class Correntista{
     private $cpfCliente;
     private $saldo;
 
-    public function __construct($cpfCliente, $saldo)
+    public function __construct(String $cpfCliente, float $saldo)
     {
         $this->cpfCliente = $cpfCliente;
         $this->saldo = $saldo;

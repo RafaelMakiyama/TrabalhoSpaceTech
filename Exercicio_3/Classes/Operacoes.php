@@ -2,7 +2,7 @@
 
 class Operacoes implements OperacoesBanco{
 
-    public function encontraCorrentista($todosCorrentistas = [], $cpfProcurado)
+    public function encontraCorrentista(array $todosCorrentistas , String  $cpfProcurado)
     {
         foreach($todosCorrentistas as $correntista)
         {
