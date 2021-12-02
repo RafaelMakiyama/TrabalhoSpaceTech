@@ -9,12 +9,19 @@ class DespesaDia extends DespesaMes{
         $this->dia= $dia;
     }
 
-
     public function getDia()
     {
         return $this->dia;
     }
+    
 
+    public function getMes(){
+        return parent::getMes();
+    }
+
+    public function getValor(){
+        return parent::getValor();
+    }
 
 } 
 
