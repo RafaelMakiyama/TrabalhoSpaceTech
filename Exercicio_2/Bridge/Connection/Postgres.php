@@ -2,7 +2,7 @@
 class Postgres implements Connection{
 
     function connection(){
-        echo "Conectado com o Postgres";
+        echo "conectado com o Postgres <br>";
     }
 
 }

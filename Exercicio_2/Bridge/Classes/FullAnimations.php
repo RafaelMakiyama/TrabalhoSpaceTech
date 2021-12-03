@@ -9,6 +9,6 @@ class FullAnimations extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na FullAnimations";
+        return "Você está na FullAnimations ";
     }
 }

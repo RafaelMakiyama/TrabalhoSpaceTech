@@ -2,7 +2,7 @@
 class MariaDB implements Connection{
 
     function connection(){
-        echo "Conectado com o MariaDB";
+        echo "conectado com o MariaDB <br>";
     }
     
 }

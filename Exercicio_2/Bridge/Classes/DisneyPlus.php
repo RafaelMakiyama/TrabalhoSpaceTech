@@ -9,7 +9,7 @@ class DisneyPlus extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na DisneyPlus";
+        return "Você está na DisneyPlus ";
     }
 
 }

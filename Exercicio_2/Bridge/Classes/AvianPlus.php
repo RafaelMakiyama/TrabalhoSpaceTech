@@ -9,6 +9,6 @@ class AvianPlus extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na AvianPlus ";
+        return "Você está na AvianPlus ";
     }
 }

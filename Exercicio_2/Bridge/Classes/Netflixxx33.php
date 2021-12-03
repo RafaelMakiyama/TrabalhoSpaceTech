@@ -6,4 +6,9 @@ class Netflixxx33 extends Streaming{
     {  
        return $this->conexao->connection(); 
     }
+
+    public function mostrarStreaming()
+    {
+        return "Você está na Netflixxx33 ";
+    }  
 }

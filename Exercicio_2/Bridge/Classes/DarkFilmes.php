@@ -9,7 +9,7 @@ class DarkFilmes extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na DarkFilmes ";
+        return "Você está na DarkFilmes ";
     }
 
 }

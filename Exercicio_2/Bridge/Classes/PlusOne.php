@@ -9,6 +9,6 @@ class PlusOne extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na PlusOne ";
+        return "Você está na PlusOne ";
     }
 }

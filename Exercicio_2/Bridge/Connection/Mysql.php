@@ -2,7 +2,7 @@
 class Mysql implements Connection{
 
     function connection(){
-        echo "Conectado com o MYSQL";
+        echo "conectado com o MYSQL <br>";
     }
 
     

@@ -9,6 +9,6 @@ class TelgoPlus extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na TelgoPlus ";
+        return "Você está na TelgoPlus ";
     }
 }

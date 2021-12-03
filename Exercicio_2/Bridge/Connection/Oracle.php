@@ -2,7 +2,7 @@
 class Oracle implements Connection{
 
     function connection(){
-        echo "Conectado com o Oracle";
+        echo "conectado com o Oracle <br>";
     }
 
 }

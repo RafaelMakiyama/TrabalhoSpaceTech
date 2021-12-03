@@ -9,6 +9,6 @@ class SkyPobre extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na SkyPobre ";
+        return "Você está na SkyPobre ";
     }
 }

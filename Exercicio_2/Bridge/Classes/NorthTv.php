@@ -9,6 +9,6 @@ class NorthTv extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na NorthTv";
+        return "Você está na NorthTv ";
     }
 }

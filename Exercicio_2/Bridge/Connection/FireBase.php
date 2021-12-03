@@ -2,7 +2,7 @@
 class Firebase implements Connection{
 
     function connection(){
-        echo "Conectado com o Firebase";
+        echo "conectado com o Firebase <br>";
     }
     
 }

@@ -9,7 +9,7 @@ class AcademicGreen extends Streaming {
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na AcademicGrren";
+        return "Você está  na AcademicGren ";
     }
 
 }

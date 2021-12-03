@@ -9,6 +9,6 @@ class AnimaKaiTv2 extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na AnimaKaiTv";
+        return "Você está na AnimaKaiTv ";
     }    
 }
