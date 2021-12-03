@@ -1,13 +1,13 @@
 <?php
 
 abstract class Streaming{
-    private $conexao;
+    protected $conexao;
 
     public function __construct(Connection $conexao){
         $this->conexao = $conexao;
     }
 
-    abstract function connection();
+    abstract public function conexaoBancoDeDados();
     
 }
 ?>
