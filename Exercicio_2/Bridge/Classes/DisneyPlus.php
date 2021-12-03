@@ -1,6 +1,6 @@
 <?php
 
-class AnimaKaiTv2 extends Streaming{
+class DisneyPlus extends Streaming{
 
     public function conexaoBancoDeDados()
     {  
@@ -9,6 +9,7 @@ class AnimaKaiTv2 extends Streaming{
 
     public function mostrarStreaming()
     {
-        return "Você está conectado na AnimaKaiTv";
-    }    
+        return "Você está conectado na DisneyPlus";
+    }
+
 }

@@ -1,10 +1,15 @@
 <?php
-require_once('../autoload.php');
 
-class AcademicGreen {
+class AcademicGreen extends Streaming {
 
-    public function connection(){
-        return $this->conexao->connection();
+    public function conexaoBancoDeDados()
+    {  
+       return $this->conexao->connection(); 
+    }
+
+    public function mostrarStreaming()
+    {
+        return "Você está conectado na AcademicGrren";
     }
 
 }

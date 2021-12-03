@@ -8,6 +8,7 @@ abstract class Streaming{
     }
 
     abstract public function conexaoBancoDeDados();
+    abstract public function mostrarStreaming();
     
 }
 ?>
