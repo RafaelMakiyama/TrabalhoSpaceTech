@@ -6,4 +6,9 @@ class TelgoPlus extends Streaming{
     {  
        return $this->conexao->connection(); 
     }
+
+    public function mostrarStreaming()
+    {
+        return "Você está conectado na TelgoPlus ";
+    }
 }

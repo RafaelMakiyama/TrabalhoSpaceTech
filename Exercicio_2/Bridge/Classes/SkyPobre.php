@@ -6,4 +6,9 @@ class SkyPobre extends Streaming{
     {  
        return $this->conexao->connection(); 
     }
+
+    public function mostrarStreaming()
+    {
+        return "Você está conectado na SkyPobre ";
+    }
 }
