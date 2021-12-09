@@ -1,4 +1,10 @@
-<h1>Lista de items:</h1>
+<ul>
+    <li><a href="{{route('home')}}">Início</a></li>
+    <li><a href="#home">Funcionários</a></li>
+    <li><a class="active" href="{{route('items.index')}}">Itens locais</a></li>
+    <li><a href="#contact">Quadro de Horários</a></li>
+</ul>
+<h1 class="text-center">Lista de itens:</h1>
     <table>
         <tr>
             <th>Codigo</th>
@@ -16,6 +22,37 @@
     <br><br>
 </ul>
 <style>
+    .text-center{
+        text-align: center;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #1b5dd8;
+    }
+
     table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
