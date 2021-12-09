@@ -1,21 +1,25 @@
 <ul>
     <li><a href="{{route('home')}}">Início</a></li>
     <li><a href="{{route('employees.index')}}">Funcionários</a></li>
-    <li><a class="active" href="{{route('items.index')}}">Itens locais</a></li>
-    <li><a href="{{route('timesTable.index')}}">Quadro de Horários</a></li>
+    <li><a href="{{route('items.index')}}">Itens locais</a></li>
+    <li><a class="active" href="{{route('timesTable.index')}}">Quadro de Horários</a></li>
 </ul>
-<h1 class="text-center">Lista de itens:</h1>
+<h1 class="text-center">Tabela de horarios</h1>
     <table>
         <tr>
             <th>Codigo</th>
-            <th>Nome do Item</th>
-            <th>Ação</th>
+            <th>Nome do funcionaio</th>
+            <th>Dia</th>
+            <th>Entrada</th>
+            <th>Saida</th>
         </tr>
-    @foreach($items as $item)
+    @foreach($timesTable as $timeTable)
         <tr>
-          <th>{{ $item['id'] }}</th>
-          <th>{{ $item['name'] }}</th>          
-          {{-- <th><a href={{route('items.show', $item['id'])}}>Exibir item</a></th> --}}
+          <th>{{ $timeTable['id'] }}</th>
+          <th>{{ $timeTable['employe_name'] }}</th>
+          <th>{{ $timeTable['day'] }}</th>
+          <th>{{ $timeTable['entry_time'] }}</th>
+          <th>{{ $timeTable['out_time'] }}</th>                   
         </tr>
     @endforeach
     </table>

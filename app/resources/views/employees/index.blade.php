@@ -2,7 +2,7 @@
     <li><a href="{{route('home')}}">Início</a></li>
     <li><a class="active" href="{{route('employees.index')}}">Funcionários</a></li>
     <li><a href="{{route('items.index')}}">Itens locais</a></li>
-    <li><a href="#contact">Quadro de Horários</a></li>
+    <li><a href="{{route('timesTable.index')}}">Quadro de Horários</a></li>
 </ul>
 <h1 class="text-center">Lista de Funcionários:</h1>
     <table>

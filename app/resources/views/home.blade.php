@@ -43,9 +43,9 @@
     <body>
         <ul>
             <li><a class="active" href="{{route('home')}}">Início</a></li>
-            <li><a href="#home">Funcionários</a></li>
+            <li><a href="{{route('employees.index')}}">Funcionários</a></li>
             <li><a href="{{route('items.index')}}">Itens locais</a></li>
-            <li><a href="#contact">Quadro de Horários</a></li>
+            <li><a href="{{route('timesTable.index')}}">Quadro de Horários</a></li>
         </ul>
         <br>
         <h1 class="title text-center">Trabalho SpaceTech em Grupo</h1>

@@ -10,6 +10,7 @@ class Timetable extends Model
     use HasFactory;
 
     protected $fillable = [
+        'employe_name',
         'day'
     ];
 

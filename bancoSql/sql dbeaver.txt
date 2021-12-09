@@ -1,0 +1,85 @@
+SELECT * FROM employees e ;
+
+--  Auto-generated SQL script #202112091028
+INSERT INTO trabalhoSpaceTech.employees (id,created_at,updated_at,name,`function`,salary,contract_time)
+VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','João','Supervisor de limpeza', 6000 , 24);
+
+INSERT INTO trabalhoSpaceTech.employees (id,created_at,updated_at,name,`function`,salary,contract_time)
+VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Cleber','Jardineiro', 3000 , 72);
+
+INSERT INTO trabalhoSpaceTech.employees (id,created_at,updated_at,name,`function`,salary,contract_time)
+VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Flores','Serviços Gerais', 1500 , 144);
+
+INSERT INTO trabalhoSpaceTech.employees (id,created_at,updated_at,name,`function`,salary,contract_time)
+VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Claudete','Serviços Gerais', 800 , 96);
+
+INSERT INTO trabalhoSpaceTech.employees (id,created_at,updated_at,name,`function`,salary,contract_time)
+VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Fabiano','Serviços Gerais', 1800 , 72);
+
+select * from items i ;
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Saco de lixo' , 50 , 'Limpe Sempre ', 1);
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Luvas' , 1100 , 'Limpeza++', 0);
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Oculos de proteção' , 80 , 'AxxxxT', 1);
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Espátulas de remoção' , 120 , 'Limpeza++', 1);
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Detergente' , 120 , 'Limpeza++', 0);
+
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Sabão em pó' , 15000 , 'Limpeza++', 0);
+
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Sabão de alcool' , 2000 , 'Limpe Sempre', 0);
+
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Esponja' , 30000 , 'Clean77', 1);
+
+
+INSERT INTO trabalhoSpaceTech.items (id,created_at,updated_at,name,quantities,brand,warranty)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58','Palha de aço' , 8000 , 'Limpeza++', 1);
+
+
+SELECT  * from timetables t ;
+
+--  Auto-generated SQL script #202112091042
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'João' ,'Segunda', '08:00:00', '18:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'Cleber' ,'Segunda', '09:00:00', '19:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'Flores' ,'Segunda', '07:00:00', '14:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'Claudete' ,'Segunda', '12:00:00', '20:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'Fabiano' ,'Segunda', '13:00:00', '17:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'João' ,'Terça', '08:00:00', '18:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'Cleber' ,'Terça', '09:00:00', '19:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'Flores' ,'Terça', '07:00:00', '14:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'Claudete' ,'Terça', '12:00:00', '20:00:00');
+
+INSERT INTO trabalhoSpaceTech.timetables (id,created_at,updated_at,employe_name,`day`,entry_time,out_time)
+	VALUES (NULL,'2021-12-09 10:26:58','2021-12-09 10:26:58', 'Fabiano' ,'Quarta', '13:00:00', '17:00:00');
