@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 
 
 Route::get('/items', [ItemController::class, 'listItems'])->name('items.index');
+
+Route::get('/employees', [EmployeeController::class, 'listEmployees'])->name('employees.index');
