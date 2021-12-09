@@ -17,6 +17,5 @@ class Timetable extends Model
         'entry_time'=> 'time',
         'out_time'=> 'time'
     ];
-
     
 }
