@@ -15,11 +15,11 @@
         </tr>
     @foreach($timesTable as $timeTable)
         <tr>
-          <th>{{ $timeTable['id'] }}</th>
-          <th>{{ $timeTable['employe_name'] }}</th>
-          <th>{{ $timeTable['day'] }}</th>
-          <th>{{ $timeTable['entry_time'] }}</th>
-          <th>{{ $timeTable['out_time'] }}</th>                   
+          <th>{{ $timeTable->id }}</th>
+          <th>{{ $timeTable->employe_name }}</th>
+          <th>{{ $timeTable->day }}</th>
+          <th>{{ $timeTable->entry_time }}</th>
+          <th>{{ $timeTable->out_time }}</th>                   
         </tr>
     @endforeach
     </table>

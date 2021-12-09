@@ -13,8 +13,8 @@
         </tr>
     @foreach($items as $item)
         <tr>
-          <th>{{ $item['id'] }}</th>
-          <th>{{ $item['name'] }}</th>          
+          <th>{{ $item->id }}</th>
+          <th>{{ $item->name }}</th>          
           {{-- <th><a href={{route('items.show', $item['id'])}}>Exibir item</a></th> --}}
         </tr>
     @endforeach

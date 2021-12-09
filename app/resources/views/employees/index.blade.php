@@ -14,9 +14,9 @@
         </tr>
     @foreach($employees as $employee)
         <tr>
-          <th>{{ $employee['id'] }}</th>
-          <th>{{ $employee['name'] }}</th>          
-          <th>{{ $employee['function'] }}</th>          
+          <th>{{ $employee->id }}</th>
+          <th>{{ $employee->name }}</th>          
+          <th>{{ $employee->function }}</th>          
           {{-- <th><a href={{route('items.show', $item['id'])}}>Exibir item</a></th> --}}
         </tr>
     @endforeach

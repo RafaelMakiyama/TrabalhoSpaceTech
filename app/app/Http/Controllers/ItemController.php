@@ -9,7 +9,6 @@ class ItemController extends Controller
 {
     function listItems(){
         $items = Item::all();
-
         return view('item.index', compact('items'));
     }
 }
