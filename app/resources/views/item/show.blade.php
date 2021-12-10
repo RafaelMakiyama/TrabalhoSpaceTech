@@ -4,23 +4,38 @@
     <li><a class="active" href="{{route('items.index')}}">Itens locais</a></li>
     <li><a href="{{route('timesTable.index')}}">Quadro de Horários</a></li>
 </ul>
-<h1 class="text-center">Lista de itens:</h1>
+<h1 class="text-center">Lista do Item: {{ $item->name }} </h1>
     <table>
         <tr>
             <th>Codigo</th>
             <th>Nome do Item</th>
-            <th>Ação</th>
+            <th>QPD 20 *</th>
+            <th>Marca</th>
+            <th>Garantia</th>
+            <th>Ações</th>
         </tr>
-    @foreach($items as $item)
         <tr>
           <th>{{ $item->id }}</th>
-          <th>{{ $item->name }}</th>          
-          <th><a href={{route('items.show', $item->id)}}> Exibir item </a></th>
+          <th>{{ $item->name }}</th>
+          <th>{{ $item->quantities / 20 }} </th>
+          <th>{{ $item->brand }} </th>
+          <th>@if($item->warranty)
+             Com garantia
+             @else
+             Sem garantia                 
+             @endif
+          </th>
+         
+          <th><a href={{route('items.index')}}>Retornar a página anterior</a></th>
         </tr>
-    @endforeach
     </table>
+
+    <p>QPD 20: Quantidade aporxima de uso por dia, durante um periodo de 20 dias
     <br><br>
 </ul>
+
+
+
 <style>
     .text-center{
         text-align: center;

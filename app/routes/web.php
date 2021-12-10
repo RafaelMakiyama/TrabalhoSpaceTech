@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 
 Route::get('/items', [ItemController::class, 'listItems'])->name('items.index');
-
+Route::get('/items/{id}', [ItemController::class, 'show'])->name('items.show');
 Route::get('/employees', [EmployeeController::class, 'listEmployees'])->name('employees.index');
-
+Route::get('/employees/{id}', [ EmployeeController::class, 'show'])->name('employees.show');
 Route::get('/timeTable', [TimetableController::class, 'listTimesTable'])->name('timesTable.index');

@@ -11,4 +11,15 @@ class ItemController extends Controller
         $items = Item::all();
         return view('item.index', compact('items'));
     }
+
+    function show($id){
+        $item = Item::find($id);
+
+        if(!$item){
+            return redirect()->route('items.index');
+        }
+        
+       return view('item.show',compact('item'));
+    }
+
 }

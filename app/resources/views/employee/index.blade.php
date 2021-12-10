@@ -1,23 +1,25 @@
 <ul>
     <li><a href="{{route('home')}}">Início</a></li>
-    <li><a href="{{route('employees.index')}}">Funcionários</a></li>
-    <li><a class="active" href="{{route('items.index')}}">Itens locais</a></li>
+    <li><a class="active" href="{{route('employees.index')}}">Funcionários</a></li>
+    <li><a href="{{route('items.index')}}">Itens locais</a></li>
     <li><a href="{{route('timesTable.index')}}">Quadro de Horários</a></li>
 </ul>
-<h1 class="text-center">Lista de itens:</h1>
+<h1 class="text-center">Lista de Funcionários:</h1>
     <table>
         <tr>
             <th>Codigo</th>
-            <th>Nome do Item</th>
+            <th>Nome do Funcionario</th>
+            <th>Função</th>
             <th>Ação</th>
         </tr>
-    @foreach($items as $item)
-        <tr>
-          <th>{{ $item->id }}</th>
-          <th>{{ $item->name }}</th>          
-          <th><a href={{route('items.show', $item->id)}}> Exibir item </a></th>
-        </tr>
-    @endforeach
+        @foreach($employees as $employee)
+            <tr>
+                <th>{{ $employee->id }}</th>
+                <th>{{ $employee->name }}</th>          
+                <th>{{ $employee->function }}</th>          
+                <th><a href={{route('employees.show', $employee['id'])}}>Exibir grade hoŕaria</a></th>
+            </tr>
+        @endforeach
     </table>
     <br><br>
 </ul>

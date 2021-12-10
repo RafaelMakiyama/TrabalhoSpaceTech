@@ -4,22 +4,47 @@
     <li><a href="{{route('items.index')}}">Itens locais</a></li>
     <li><a href="{{route('timesTable.index')}}">Quadro de Horários</a></li>
 </ul>
-<h1 class="text-center">Lista de Funcionários:</h1>
+
+<h1 class="text-center">Informações do funcionário {{ $employee->name }}</h1>
     <table>
         <tr>
-            <th>Codigo</th>
             <th>Nome do Funcionario</th>
             <th>Função</th>
+            <th>Salário</th>
+            <th>Tempo de contrato</th>
             <th>Ação</th>
         </tr>
-    @foreach($employees as $employee)
         <tr>
-          <th>{{ $employee->id }}</th>
-          <th>{{ $employee->name }}</th>          
-          <th>{{ $employee->function }}</th>          
-          {{-- <th><a href={{route('items.show', $item['id'])}}>Exibir item</a></th> --}}
+            <th>{{$employee->name }}</th>
+            <th>{{$employee->function }}</th>
+            <th>R$ {{ $employee->salary }}</th>
+            <th>
+                @if($employee->contract_time < 12 )
+                  {{  $employee->contract_time }} meses
+                @else
+                {{  $employee->contract_time / 12  }} anos
+                @endif 
+            </th>    
+            <th><a href={{route('employees.index')}}>Exibir todos os funcionários</a></th>
         </tr>
-    @endforeach
+    </table>
+    <br><br>
+<h1 class="text-center">Lista de horários do funcionário</h1>
+    <table>
+        <tr>
+            <th>Nome do Funcionario</th>
+            <th>Dia</th>
+            <th>Horário de entrada</th>
+            <th>Horário de saída</th>
+        </tr>
+        @foreach($timeTables as $time)
+            <tr>
+                <th>{{ $time->employe_name }}</th>
+                <th> {{ $time->day }} </th>
+                <th>{{ $time->entry_time }}</th>          
+                <th>{{ $time->out_time}}</th>
+            </tr>
+        @endforeach
     </table>
     <br><br>
 </ul>
