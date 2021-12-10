@@ -7,7 +7,7 @@
 <h1 class="text-center">Lista do Item: {{ $item->name }} </h1>
     <table>
         <tr>
-            <th>Codigo</th>
+            <th>Código</th>
             <th>Nome do Item</th>
             <th>QPD 20 *</th>
             <th>Marca</th>
@@ -30,7 +30,7 @@
         </tr>
     </table>
 
-    <p>QPD 20: Quantidade aporxima de uso por dia, durante um periodo de 20 dias
+    <p>QPD 20: Quantidade aproximada de uso por dia, durante um período de 20 dias
     <br><br>
 </ul>
 

@@ -4,11 +4,11 @@
     <li><a href="{{route('items.index')}}">Itens locais</a></li>
     <li><a class="active" href="{{route('timesTable.index')}}">Quadro de Horários</a></li>
 </ul>
-<h1 class="text-center">Tabela de horarios</h1>
+<h1 class="text-center">Tabela de horários</h1>
     <table>
         <tr>
-            <th>Codigo</th>
-            <th>Nome do funcionaio</th>
+            <th>Código</th>
+            <th>Nome do funcionário</th>
             <th>Dia</th>
             <th>Entrada</th>
             <th>Saida</th>

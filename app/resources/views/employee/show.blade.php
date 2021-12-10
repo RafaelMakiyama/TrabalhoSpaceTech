@@ -8,7 +8,7 @@
 <h1 class="text-center">Informações do funcionário {{ $employee->name }}</h1>
     <table>
         <tr>
-            <th>Nome do Funcionario</th>
+            <th>Nome do Funcionário</th>
             <th>Função</th>
             <th>Salário</th>
             <th>Tempo de contrato</th>
@@ -32,14 +32,12 @@
 <h1 class="text-center">Lista de horários do funcionário</h1>
     <table>
         <tr>
-            <th>Nome do Funcionario</th>
             <th>Dia</th>
             <th>Horário de entrada</th>
             <th>Horário de saída</th>
         </tr>
         @foreach($timeTables as $time)
             <tr>
-                <th>{{ $time->employe_name }}</th>
                 <th> {{ $time->day }} </th>
                 <th>{{ $time->entry_time }}</th>          
                 <th>{{ $time->out_time}}</th>

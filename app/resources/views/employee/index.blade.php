@@ -7,8 +7,8 @@
 <h1 class="text-center">Lista de Funcionários:</h1>
     <table>
         <tr>
-            <th>Codigo</th>
-            <th>Nome do Funcionario</th>
+            <th>Código</th>
+            <th>Nome do Funcionário</th>
             <th>Função</th>
             <th>Ação</th>
         </tr>
@@ -17,7 +17,7 @@
                 <th>{{ $employee->id }}</th>
                 <th>{{ $employee->name }}</th>          
                 <th>{{ $employee->function }}</th>          
-                <th><a href={{route('employees.show', $employee['id'])}}>Exibir grade hoŕaria</a></th>
+                <th><a href={{route('employees.show', $employee['id'])}}>Exibir grade horária</a></th>
             </tr>
         @endforeach
     </table>

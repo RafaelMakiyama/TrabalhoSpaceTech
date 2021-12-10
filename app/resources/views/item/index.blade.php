@@ -7,7 +7,7 @@
 <h1 class="text-center">Lista de itens:</h1>
     <table>
         <tr>
-            <th>Codigo</th>
+            <th>Código</th>
             <th>Nome do Item</th>
             <th>Ação</th>
         </tr>
