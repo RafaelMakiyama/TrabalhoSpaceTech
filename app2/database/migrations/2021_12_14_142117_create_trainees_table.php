@@ -16,6 +16,10 @@ class CreateTraineesTable extends Migration
         Schema::create('trainees', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('scholarity');
+            $table->string('telephone');
+            $table->string('email');
         });
     }
 

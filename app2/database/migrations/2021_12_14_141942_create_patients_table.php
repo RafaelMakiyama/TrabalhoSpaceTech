@@ -16,6 +16,13 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('surname');
+            $table->int('age');
+            $table->string('address');
+            $table->string('telephone');
+            $table->string('email');
+            $table->boolean('is_doador');
         });
     }
 
