@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\{DoctorController, PatientController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +19,4 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('medicos', DoctorController::class);
+Route::resource('pacientes', PatientController::class);
