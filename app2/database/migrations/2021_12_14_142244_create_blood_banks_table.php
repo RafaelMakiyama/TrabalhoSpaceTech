@@ -15,6 +15,9 @@ class CreateBloodBanksTable extends Migration
     {
         Schema::create('blood_banks', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->string('compatibility');
+
             $table->timestamps();
         });
     }
