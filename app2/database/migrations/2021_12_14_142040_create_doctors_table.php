@@ -19,7 +19,7 @@ class CreateDoctorsTable extends Migration
             $table->string('crm');
             $table->string('name');
             $table->string('work_ocupattion');
-            $table->int('age');
+            $table->integer('age');
             $table->string('telephone');
             $table->string('email');
         });
