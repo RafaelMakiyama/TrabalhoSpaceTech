@@ -11,6 +11,7 @@
 </head>
 <body>
     @yield('navbar')
+    @include('menu.menu')
     <div class="container-fluid">
         <div class="row">
           <div class="col-12">

@@ -24,8 +24,15 @@ class BloodBankRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'required|text',
-            'compatibility' => 'required|text'
+            'type' => 'required',
+            'compatibility' => 'required'
+        ];
+    }
+
+    public function messages(){
+        return [
+            'type.required'=> 'O campo tipo é obrigatório',
+            'compatibility.required' => 'O campo compativel é obrigatório'
         ];
     }
 }
