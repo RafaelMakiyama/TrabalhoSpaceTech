@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{DoctorController, PatientController};
+use App\Http\Controllers\{DoctorController, PatientController, BloodBankController,};
 use Illuminate\Support\Facades\Route;
 
 /*
