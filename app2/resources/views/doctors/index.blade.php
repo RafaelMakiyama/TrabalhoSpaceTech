@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('pageTitle', 'Médicos')
-@include('menu.menu')
 @section('body')
+@include('layouts.alerts')
 
         <a href={{route('medicos.create')}}> <button type="button" class="btn btn-primary">Adicionar médico</button></a><br><br>
         <table class="table table-bordered">
@@ -32,7 +32,7 @@
                 <form action="{{route('medicos.destroy', $doctor->id)}}" method="post">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"> 
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    <button type="submitgi" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                  </form>
               </td>
             </tr>

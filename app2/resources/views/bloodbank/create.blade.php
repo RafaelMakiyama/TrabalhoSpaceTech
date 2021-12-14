@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('pageTitle', 'Banco de sangue')
-@include('menu.menu')
 @section('body')
+@include('layouts.alerts')
 
 <form method="POST" action="{{ route('banco-de-sangue.store')}}">
     @csrf

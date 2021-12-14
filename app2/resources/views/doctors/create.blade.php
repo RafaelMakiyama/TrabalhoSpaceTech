@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('pageTitle', 'Médicos')
-@include('menu.menu')
 @section('body')
+@include('layouts.alerts')
 
 <form method="POST" action="{{ route('medicos.store')}}">
     @csrf
@@ -34,4 +34,4 @@
     <button type="submit" class="btn btn-primary">Cadastrar</button>
   </form>
 
-  @endsection
+@endsection

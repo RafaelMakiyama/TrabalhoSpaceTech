@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('pageTitle', 'Banco de sangue')
-@include('menu.menu')
 @section('body')
+@include('layouts.alerts')
 
         <a href={{route('banco-de-sangue.create')}}> <button type="button" class="btn btn-primary">Adicionar banco de sangue</button></a><br><br>
         <table class="table table-bordered">

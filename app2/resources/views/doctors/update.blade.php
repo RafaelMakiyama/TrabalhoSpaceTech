@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 @section('pageTitle', 'Médicos')
-@include('menu.menu')
 @section('body')
 
 <form method="POST" action="{{ route('medicos.update', $doctor->id )}}">
