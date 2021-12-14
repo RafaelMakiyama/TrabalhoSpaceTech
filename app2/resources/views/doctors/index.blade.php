@@ -28,9 +28,12 @@
               <td>{{ $doctor->telephone }} </td>
               <td>{{ $doctor->email }} </td>
               <td>
-                <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-              <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                <a href="{{route("medicos.edit", $doctor->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <form action="{{route('medicos.destroy', $doctor->id)}}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}"> 
+                    <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                 </form>
               </td>
             </tr>
               @endforeach

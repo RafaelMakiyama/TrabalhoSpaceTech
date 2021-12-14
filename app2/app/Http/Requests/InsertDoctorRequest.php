@@ -26,13 +26,8 @@ class InsertDoctorRequest extends FormRequest
         return [
             'name' => 'required',
             'crm' => 'required',
-            'age'=> 'number',
+            'age'=> 'numeric',
         ];
-    }
-
-    public function messages()
-    {
-
     }
 
 }

@@ -38,9 +38,8 @@ class DoctorController extends Controller
      */
     public function store(InsertDoctorRequest  $request)
     {
-        dd($request->all());
         $doctor = Doctor::create($request->all());
-        return redirect()->route('doctors');
+        return redirect()->route('medicos.index');
     }
 
     /**
@@ -51,7 +50,7 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -62,7 +61,8 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $doctor = Doctor::find($id);
+        return view('doctors.update', compact('doctor'));
     }
 
     /**
@@ -72,9 +72,16 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InsertDoctorRequest $request, $id)
     {
-        //
+        $doctor = Doctor::find($id);
+        
+        if(!$doctor):
+            return redirect()->back();
+        endif;
+
+        $doctor->update($request->all());
+        return redirect()->route('medicos.index')->with('message', "Médico {$id} atualizado com sucesso");
     }
 
     /**
@@ -85,6 +92,13 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $doctor = Doctor::find($id);
+
+        if(!$doctor):
+            return redirect()->back();
+        endif;
+
+        $doctor->delete();
+        return redirect()->route('medicos.index')->with('message', "Médico {$id} deletado com sucesso");
     }
 }
