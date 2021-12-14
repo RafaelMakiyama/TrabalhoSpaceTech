@@ -17,7 +17,6 @@ class CreateBloodBanksTable extends Migration
             $table->id();
             $table->string('type');
             $table->string('compatibility');
-
             $table->timestamps();
         });
     }

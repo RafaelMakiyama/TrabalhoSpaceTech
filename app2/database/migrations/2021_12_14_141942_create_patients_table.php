@@ -22,7 +22,7 @@ class CreatePatientsTable extends Migration
             $table->string('address');
             $table->string('telephone');
             $table->string('email');
-            $table->boolean('is_doador');
+            $table->boolean('is_donor');
         });
     }
 
