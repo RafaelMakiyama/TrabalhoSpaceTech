@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Requests\InsertDoctorRequest;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -13,7 +16,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = Doctor::all();
+        return view('doctors.index', compact('doctors'));
     }
 
     /**
@@ -23,7 +27,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        return view('doctors.create');
     }
 
     /**
@@ -32,9 +36,11 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InsertDoctorRequest  $request)
     {
-        //
+        dd($request->all());
+        $doctor = Doctor::create($request->all());
+        return redirect()->route('doctors');
     }
 
     /**
