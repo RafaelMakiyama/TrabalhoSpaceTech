@@ -37,6 +37,6 @@
         Route::is('relatorio.index')||
         Route::is('relatorio.administrativo')||
         Route::is('relatorio.doacao')        
-        ) ? 'active': ''}}" href="{{route('relatorio.administrativo')}}">Relatórios </a>
+        ) ? 'active': ''}}" href="{{route('relatorio.index')}}">Relatórios </a>
     </li>    
 </ul>

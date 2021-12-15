@@ -28,7 +28,10 @@
             </tr>
             @endforeach
         </tbody>
-    </table>    
+    </table>
+    <div class="col-12 d-flex justify-content-center">
+        {{ $doctors->appends(['trainees' => $trainees->currentPage()])->links() }}
+    </div>    
     <hr>
     <h4>Estagiários: {{$trainees->count()}}</h4>
     <table class="table table-bordered">
@@ -53,6 +56,9 @@
             @endforeach
         </tbody>
       </table>
+      <div class="col-12 d-flex justify-content-center">
+        {{ $trainees->appends(['doctors' => $doctors->currentPage()])->links() }}
+      </div>
       <br>
       <a href="{{route('relatorio.index')}}" class="btn btn-secondary">Voltar</a>
 @endsection
