@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\{DoctorController, PatientController, BloodBankController, DonationController, TraineeController };
+use App\Http\Controllers\{DoctorController, PatientController, BloodBankController, 
+    DonationController, TraineeController, ReportController };
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,7 @@ Route::resource('banco-de-sangue', BloodBankController::class );
 Route::resource('pacientes', PatientController::class);
 Route::resource('doacoes', DonationController::class);
 Route::resource('estagiarios', TraineeController::class);
+Route::get('relatorioadministrativo', [ReportController::class, 'administativeReport'])->name('relatorio.administrativo');
+Route::get('relatorio', function(){
+    return view('reports.index');
+})->name('relatorio.index');

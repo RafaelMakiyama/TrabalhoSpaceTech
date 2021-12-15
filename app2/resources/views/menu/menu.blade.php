@@ -27,4 +27,10 @@
         Route::is('pacientes.show')
         ) ? 'active': ''}}" href="{{route('pacientes.index')}}">Pacientes </a>
     </li>
+    <li><a class="{{(
+        Route::is('relatorio.index')||
+        Route::is('relatorio.administrativo')||
+        Route::is('relatorio.doacao')        
+        ) ? 'active': ''}}" href="{{route('relatorio.administrativo')}}">Relatórios </a>
+    </li>    
 </ul>
