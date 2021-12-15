@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InsertDonationRequest;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 
 class DonationController extends Controller
@@ -13,7 +15,8 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        $donations = Donation::all();
+        return view('donation.index', compact('donations'));
     }
 
     /**
@@ -23,7 +26,7 @@ class DonationController extends Controller
      */
     public function create()
     {
-        //
+        return view('donation.create');
     }
 
     /**
@@ -32,9 +35,10 @@ class DonationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InsertDonationRequest  $request)
     {
-        //
+        $donation = Donation::create($request->all());
+        return redirect()->route('doacoes.index')->with('message', "Doaçâo {$donation->id} cadastrado com sucesso!");
     }
 
     /**
@@ -45,7 +49,7 @@ class DonationController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -56,7 +60,8 @@ class DonationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $donation = Donation::find($id);
+        return view('donation.update', compact('donation'));
     }
 
     /**
@@ -66,9 +71,16 @@ class DonationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InsertDonationRequest $request, $id)
     {
-        //
+        $donation = Donation::find($id);
+
+        if(!$donation):
+            return redirect()->back();
+        endif;
+
+        $donation->update($request->all());
+        return redirect()->route('doacoes.index')->with('message', "Doação {$id} atualizado com sucesso");
     }
 
     /**
@@ -79,6 +91,13 @@ class DonationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $donation = Donation::find($id);
+
+        if(!$donation):
+            return redirect()->back();
+        endif;
+
+        $donation->delete();
+        return redirect()->route('doacoes.index')->with('message', "Doação {$id} deletado com sucesso");
     }
 }

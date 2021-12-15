@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{DoctorController, PatientController, BloodBankController,};
+use App\Http\Controllers\{DoctorController, PatientController, BloodBankController, DonationController, };
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::resource('medicos', DoctorController::class);
 Route::resource('banco-de-sangue', BloodBankController::class );
 Route::resource('pacientes', PatientController::class);
+Route::resource('doacoes', DonationController::class);
