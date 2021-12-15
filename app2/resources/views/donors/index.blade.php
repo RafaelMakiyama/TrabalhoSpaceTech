@@ -30,7 +30,8 @@
               <td>{{ $donor->disease ? 'Sim' : 'Não' }}</td>
               <td>{{ $donor->comments }} </td>
               <td>
-                <a href="{{route("doadores.edit", $donor->id ) }}"><button type="submit" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <a href="{{route("doadores.show", $donor->id ) }}"><button type="submit" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <a href="{{route("doadores.edit", $donor->id ) }}"><button type="submit" class="btn btn-primary"><i class="far fa-edit"></i></button></a>
                 <form action="{{route('doadores.destroy', $donor->id)}}" method="post">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"> 

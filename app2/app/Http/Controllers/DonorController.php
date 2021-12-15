@@ -50,7 +50,13 @@ class DonorController extends Controller
      */
     public function show($id)
     {
-        
+        $donor = Donor::find($id);
+
+        if(!$donor):
+            return redirect()->back();
+        endif;
+
+        return view('donors.show', compact('donor'));
     }
 
     /**

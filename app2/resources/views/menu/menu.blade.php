@@ -6,7 +6,13 @@
         Route::is('medicos.show')
         ) ? 'active': ''}}" href="{{route('medicos.index')}}">Médicos</a></li>
 
-    <li><a class="{{Route::is('home') ? 'active': ''}}" href="{{route('home')}}">Doadores</a></li>
+    <li><a class="{{(
+        Route::is('doadores.index')||
+        Route::is('doadores.create')||
+        Route::is('doadores.edit')||
+        Route::is('doadores.show')
+        ) ? 'active': ''}}" href="{{route('doadores.index')}}">Doadores</a></li>
+    
     <li><a class="{{Route::is('banco-de-sangue') ? 'active': ''}}" href="{{ route('banco-de-sangue.index')}}">Banco de Sangue</a></li>
     
     <li><a class="{{(  Route::is('estagiarios.index')||
