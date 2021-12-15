@@ -28,7 +28,8 @@
               <td>{{ $doctor->telephone }} </td>
               <td>{{ $doctor->email }} </td>
               <td>
-                <a href="{{route("medicos.edit", $doctor->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <a href="{{route("medicos.show", $doctor->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <a href="{{route("medicos.edit", $doctor->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i></button></a>
                 <form action="{{route('medicos.destroy', $doctor->id)}}" method="post">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -39,5 +40,7 @@
               @endforeach
           </tbody>
         </table>
-
+        <div class="col-12 d-flex justify-content-center">
+          {{ $doctors->links() }}
+      </div>
 @endsection
