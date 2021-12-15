@@ -16,7 +16,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::all();
+        $doctors = Doctor::latest()->paginate(5);
         return view('doctors.index', compact('doctors'));
     }
 
@@ -39,7 +39,7 @@ class DoctorController extends Controller
     public function store(InsertDoctorRequest  $request)
     {
         $doctor = Doctor::create($request->all());
-        return redirect()->route('medicos.index');
+        return redirect()->route('medicos.index')->with('message', "Médico {$doctor->id} cadastrado com sucesso!");
     }
 
     /**
@@ -50,7 +50,13 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        
+        $doctor = Doctor::find($id);
+
+        if(!$doctor):
+            return redirect()->back();
+        endif;
+
+        return view('doctors.show', compact('doctor'));
     }
 
     /**

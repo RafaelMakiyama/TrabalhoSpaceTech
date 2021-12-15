@@ -29,8 +29,8 @@ class InsertUpdatePatientRequest extends FormRequest
             'age' => 'required|integer|min:1|',
             'address' => 'required|string|min:2|max:255',
             'telephone' => 'required|string|min:2|max:255',
-            'email' => 'required|string|email|min:2|max:255'
-            // 'is_donor' => 'required|boolean'
+            'email' => 'required|string|email|min:2|max:255',
+            'is_donor' => 'required|boolean'
         ];
     }
 
