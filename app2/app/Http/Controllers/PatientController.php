@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InsertUpdatePatientRequest;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -13,7 +15,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+        $patients = Patient::all();
+        return view('patients.index', compact('patients'));
     }
 
     /**
@@ -23,18 +26,22 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        return view('patients.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\InsertUpdatePatientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InsertUpdatePatientRequest $request)
     {
-        //
+        $patient = Patient::create($request->all());
+        if ($patient) {
+            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->id} cadastrado com sucesso!");
+        }
+        return redirect()->back()->with('error', 'Erro ao cadastrar paciente!');
     }
 
     /**
@@ -45,7 +52,11 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        //
+        $patient = Patient::find($id);
+        if($patient) {
+            return view('patients.show', compact('patient'));
+        }
+        return redirect()->back()->with('error', 'Paciente não encontrado!');
     }
 
     /**
@@ -56,19 +67,28 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $patient = Patient::find($id);
+        if($patient) {
+            return view('patients.edit', compact('patient'));
+        }
+        return redirect()->back()->with('error', 'Paciente não encontrado!');
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\InsertUpdatePatientRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InsertUpdatePatientRequest $request, $id)
     {
-        //
+        $patient = Patient::find($id);
+        if($patient) {
+            $patient->update($request->all());
+            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->id} atualizado com sucesso!");
+        }
+        return redirect()->back()->with('error', 'Erro ao atualizar paciente!');
     }
 
     /**
@@ -79,6 +99,11 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patient = Patient::find($id);
+        if($patient) {
+            $patient->delete();
+            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->id} excluído com sucesso!");
+        }
+        return redirect()->back()->with('error', 'Erro ao excluir paciente!');
     }
 }

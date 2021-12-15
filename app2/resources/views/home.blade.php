@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 @section('pageTitle', 'Página Inicial')
-@include('menu.menu')
 @section('body')
 <br>
 <h1 class="title text-center">Hospital São lorenzo</h1>
