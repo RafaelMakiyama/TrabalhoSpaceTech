@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Requests\InsertDonorRequest;
+use App\Models\Donor;
 use Illuminate\Http\Request;
 
 class DonorController extends Controller
@@ -13,7 +16,8 @@ class DonorController extends Controller
      */
     public function index()
     {
-        //
+        $donors = Donor::all();
+        return view('donors.index', compact('donors'));
     }
 
     /**
@@ -23,7 +27,7 @@ class DonorController extends Controller
      */
     public function create()
     {
-        //
+        return view('donors.create');
     }
 
     /**
@@ -32,9 +36,10 @@ class DonorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InsertDonorRequest  $request)
     {
-        //
+        $donor = Donor::create($request->all());
+        return redirect()->route('doadores.index');
     }
 
     /**
@@ -45,7 +50,7 @@ class DonorController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -56,7 +61,8 @@ class DonorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $donor = Donor::find($id);
+        return view('donors.update', compact('donor'));
     }
 
     /**
@@ -66,9 +72,16 @@ class DonorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InsertDonorRequest $request, $id)
     {
-        //
+        $donor = Donor::find($id);
+        
+        if(!$donor):
+            return redirect()->back();
+        endif;
+
+        $donor->update($request->all());
+        return redirect()->route('doadores.index')->with('message', "Doador {$id} atualizado com sucesso");
     }
 
     /**
@@ -79,6 +92,13 @@ class DonorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $donor = Donor::find($id);
+
+        if(!$donor):
+            return redirect()->back();
+        endif;
+
+        $donor->delete();
+        return redirect()->route('doadores.index')->with('message', "Doador {$id} deletado com sucesso");
     }
 }

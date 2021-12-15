@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Donor extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'telephone',
+        'email',
+        'weight',
+        'smoker',
+        'disease',
+        'comments'
+    ];
 }

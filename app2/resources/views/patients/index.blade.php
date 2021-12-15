@@ -27,11 +27,7 @@
                 <td>{{ $patient->address }} </td>
                 <td>{{ $patient->telephone }} </td>
                 <td>{{ $patient->email }} </td>
-                @if($patient->is_donor == 1)
-                    <td>Sim</td>
-                @else
-                    <td>Não</td>
-                @endif
+                <td>{{ $donor->is_donor ? 'Sim' : 'Não' }}</td>
               <td>
                 <a href="{{route("pacientes.show", $patient->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
                 <a href="{{route("pacientes.edit", $patient->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i></button></a>
