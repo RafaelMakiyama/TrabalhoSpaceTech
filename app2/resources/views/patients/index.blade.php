@@ -36,8 +36,8 @@
                 <a href="{{route("pacientes.show", $patient->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
                 <a href="{{route("pacientes.edit", $patient->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i></button></a>
                 <form action="{{route('pacientes.destroy', $patient->id)}}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}"> 
+                    @method('DELETE')
+                    @csrf
                     <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                  </form>
               </td>
