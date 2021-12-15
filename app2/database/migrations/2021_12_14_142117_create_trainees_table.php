@@ -21,6 +21,7 @@ class CreateTraineesTable extends Migration
             $table->string('telephone');
             $table->string('email');
         });
+        
     }
 
     /**
