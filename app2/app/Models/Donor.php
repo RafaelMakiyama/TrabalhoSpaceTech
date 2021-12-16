@@ -14,6 +14,7 @@ class Donor extends Model
         'telephone',
         'email',
         'weight',
+        'height',
         'smoker',
         'disease',
         'comments'

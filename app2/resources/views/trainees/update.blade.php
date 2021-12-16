@@ -6,7 +6,7 @@
     @method('PUT')
     @include('trainees.form')
 
-    <button type="submit" class="btn btn-primary">Atualizar estagiario</button>
+    <button type="submit" class="btn btn-primary">Atualizar Estagiário</button>
   </form>
   <br>
   <a href="{{route('estagiarios.index')}}" class="btn btn-secondary">Voltar</a>

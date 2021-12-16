@@ -19,9 +19,15 @@
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Peso</label>
-        <input type="number" class="form-control" name="weight" id="exampleInputPassword1" 
+        <input type="string" class="form-control" name="weight" id="exampleInputPassword1" 
                 value="{{ $donor->weight ?? old('weight') }}"
                 placeholder="Informe o Peso">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Altura</label>
+        <input type="string" class="form-control" name="height" id="exampleInputPassword1" 
+                value="{{ $donor->height ?? old('height') }}"
+                placeholder="Informe a Altura">
     </div>
 
     <div class="mb-3">

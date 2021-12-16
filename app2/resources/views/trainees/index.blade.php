@@ -3,7 +3,7 @@
 @section('body')
 @include('layouts.alerts')
 
-        <a href={{route('estagiarios.create')}}> <button type="button" class="btn btn-primary">Adicionar estagiario</button></a><br><br>
+        <a href={{route('estagiarios.create')}}> <button type="button" class="btn btn-primary">Adicionar Estagiário</button></a><br><br>
         <table class="table table-bordered">
           <thead>
             <tr>

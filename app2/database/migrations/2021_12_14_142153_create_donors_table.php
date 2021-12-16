@@ -19,6 +19,7 @@ class CreateDonorsTable extends Migration
             $table->string('telephone');
             $table->string('email')->unique();
             $table->string('weight');
+            $table->string('height');
             $table->boolean('smoker');
             $table->boolean('disease');
             $table->string('comments');

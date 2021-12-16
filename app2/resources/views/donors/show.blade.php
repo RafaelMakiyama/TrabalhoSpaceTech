@@ -40,6 +40,14 @@
         </div>  
         <div class="row">
             <div class="col-2">
+                <p class="card-text">Altura:</p>
+            </div>
+            <div class="col">                
+                <h5 class="card-title">{{$donor->height}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
                 <p class="card-text">Fumante?:</p>
             </div>
             <div class="col">                
