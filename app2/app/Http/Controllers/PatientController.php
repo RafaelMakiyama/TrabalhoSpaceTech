@@ -39,7 +39,7 @@ class PatientController extends Controller
     {
         $patient = Patient::create($request->all());
         if ($patient) {
-            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->id} cadastrado com sucesso!");
+            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->name} cadastrado com sucesso!");
         }
         return redirect()->back()->with('error', 'Erro ao cadastrar paciente!');
     }
@@ -86,7 +86,7 @@ class PatientController extends Controller
         $patient = Patient::find($id);
         if($patient) {
             $patient->update($request->all());
-            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->id} atualizado com sucesso!");
+            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->name} atualizado com sucesso!");
         }
         return redirect()->back()->with('error', 'Erro ao atualizar paciente!');
     }
@@ -102,7 +102,7 @@ class PatientController extends Controller
         $patient = Patient::find($id);
         if($patient) {
             $patient->delete();
-            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->id} excluído com sucesso!");
+            return redirect()->route('pacientes.index')->with('message', "Paciente {$patient->name} excluído com sucesso!");
         }
         return redirect()->back()->with('error', 'Erro ao excluir paciente!');
     }

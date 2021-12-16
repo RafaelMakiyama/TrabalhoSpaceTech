@@ -39,7 +39,7 @@ class DoctorController extends Controller
     public function store(InsertDoctorRequest  $request)
     {
         $doctor = Doctor::create($request->all());
-        return redirect()->route('medicos.index')->with('message', "Médico {$doctor->id} cadastrado com sucesso!");
+        return redirect()->route('medicos.index')->with('message', "Médico {$doctor->name} cadastrado com sucesso!");
     }
 
     /**
@@ -81,13 +81,13 @@ class DoctorController extends Controller
     public function update(InsertDoctorRequest $request, $id)
     {
         $doctor = Doctor::find($id);
-        
+
         if(!$doctor):
             return redirect()->back();
         endif;
 
         $doctor->update($request->all());
-        return redirect()->route('medicos.index')->with('message', "Médico {$id} atualizado com sucesso");
+        return redirect()->route('medicos.index')->with('message', "Médico {$doctor->name} atualizado com sucesso");
     }
 
     /**
@@ -105,6 +105,6 @@ class DoctorController extends Controller
         endif;
 
         $doctor->delete();
-        return redirect()->route('medicos.index')->with('message', "Médico {$id} deletado com sucesso");
+        return redirect()->route('medicos.index')->with('message', "Médico {$doctor->id} deletado com sucesso");
     }
 }

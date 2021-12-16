@@ -38,7 +38,7 @@ class DonationController extends Controller
     public function store(InsertDonationRequest  $request)
     {
         $donation = Donation::create($request->all());
-        return redirect()->route('doacoes.index')->with('message', "Doaçâo {$donation->id} cadastrado com sucesso!");
+        return redirect()->route('doacoes.index')->with('message', "Doaçâo {$donation->donor_name} cadastrado com sucesso!");
     }
 
     /**
@@ -85,7 +85,7 @@ class DonationController extends Controller
         endif;
 
         $donation->update($request->all());
-        return redirect()->route('doacoes.index')->with('message', "Doação {$id} atualizado com sucesso");
+        return redirect()->route('doacoes.index')->with('message', "Doação {$donation->donor_name} atualizado com sucesso");
     }
 
     /**
@@ -103,6 +103,6 @@ class DonationController extends Controller
         endif;
 
         $donation->delete();
-        return redirect()->route('doacoes.index')->with('message', "Doação {$id} deletado com sucesso");
+        return redirect()->route('doacoes.index')->with('message', "Doação {$donation->donor_name} deletado com sucesso");
     }
 }

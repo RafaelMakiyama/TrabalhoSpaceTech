@@ -39,7 +39,7 @@ class DonorController extends Controller
     public function store(InsertDonorRequest  $request)
     {
         $donor = Donor::create($request->all());
-        return redirect()->route('doadores.index');
+        return redirect()->route('doadores.index')->with('message', "Doador {$donor->name} cadastrado com sucesso!");;
     }
 
     /**
@@ -81,13 +81,13 @@ class DonorController extends Controller
     public function update(InsertDonorRequest $request, $id)
     {
         $donor = Donor::find($id);
-        
+
         if(!$donor):
             return redirect()->back();
         endif;
 
         $donor->update($request->all());
-        return redirect()->route('doadores.index')->with('message', "Doador {$id} atualizado com sucesso");
+        return redirect()->route('doadores.index')->with('message', "Doador {$donor->name} atualizado com sucesso");
     }
 
     /**
@@ -105,6 +105,6 @@ class DonorController extends Controller
         endif;
 
         $donor->delete();
-        return redirect()->route('doadores.index')->with('message', "Doador {$id} deletado com sucesso");
+        return redirect()->route('doadores.index')->with('message', "Doador {$donor->name} deletado com sucesso");
     }
 }
