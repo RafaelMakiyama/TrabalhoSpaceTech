@@ -6,7 +6,7 @@
 <form method="POST" action="{{ route('medicos.update', $doctor->id )}}">
   @method('PUT')
   @include('doctors.form')
-  <button type="submit" class="btn btn-primary">Atualizar médico</button>
+  <button type="submit" class="btn btn-primary">Atualizar Médico</button>
 </form>
 <br>
 <a href="{{route('medicos.index')}}" class="btn btn-secondary">Voltar</a>

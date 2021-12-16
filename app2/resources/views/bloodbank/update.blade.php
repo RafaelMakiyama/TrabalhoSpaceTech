@@ -6,7 +6,7 @@
     @csrf
     @method('PUT')
     @include('bloodbank.form')
-    <button type="submit" class="btn btn-primary">Atualizar banco de sangue</button>
+    <button type="submit" class="btn btn-primary">Atualizar Banco de sangue</button>
 </form>
 
 <br>

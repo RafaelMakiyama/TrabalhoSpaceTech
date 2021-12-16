@@ -4,7 +4,7 @@
 @include('layouts.alerts')
 
 
-        <a href={{route('doacoes.create')}}> <button type="button" class="btn btn-primary">Adicionar Doacao</button></a><br><br>
+        <a href={{route('doacoes.create')}}> <button type="button" class="btn btn-primary">Adicionar Doação</button></a><br><br>
         <table class="table table-bordered">
           <thead>
             <tr>

@@ -23,7 +23,7 @@
         <label for="exampleInputPassword1" class="form-label">Qntd de Litros Doados</label>
         <input type="number" class="form-control" name="amnt_donor_liters" id="exampleInputPassword1" value={{ $donation->amnt_donor_liters }}>
     </div>
-    <button type="submit" class="btn btn-primary">Atualizar Doacão</button>
+    <button type="submit" class="btn btn-primary">Atualizar Doação</button>
 
     <a href="{{route('doacoes.index')}}" class="btn btn-secondary">Voltar</a>
 

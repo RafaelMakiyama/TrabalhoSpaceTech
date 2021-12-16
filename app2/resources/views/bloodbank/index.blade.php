@@ -3,7 +3,7 @@
 @section('body')
 @include('layouts.alerts')
 
-        <a href={{route('banco-de-sangue.create')}}> <button type="button" class="btn btn-primary">Adicionar banco de sangue</button></a><br><br>
+        <a href={{route('banco-de-sangue.create')}}> <button type="button" class="btn btn-primary">Adicionar Banco de sangue</button></a><br><br>
         <table class="table table-bordered">
           <thead>
             <tr>
