@@ -26,6 +26,7 @@ Route::resource('doadores', DonorController::class);
 Route::resource('doacoes', DonationController::class);
 Route::resource('estagiarios', TraineeController::class);
 Route::get('relatorioadministrativo', [ReportController::class, 'administativeReport'])->name('relatorio.administrativo');
+Route::get('relatoriodoacao', [ReportController::class, 'doacaoReport'])->name('relatorio.doacao');
 Route::get('relatorio', function(){
     return view('reports.index');
 })->name('relatorio.index');
