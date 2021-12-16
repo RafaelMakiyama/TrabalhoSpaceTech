@@ -3,7 +3,7 @@
 @section('body')
 <div class="card">
     <div class="card-header">
-      {{$donation->donor_name.}}
+      {{$donation->donor_name}}
     </div>
     <div class="card-body">
         <div class="row">
