@@ -49,6 +49,11 @@ class DonationController extends Controller
      */
     public function show($id)
     {
+        $donation = Donation::find($id);
+        if($donation) {
+            return view('donation.show', compact('donation'));
+        }
+        return redirect()->back()->with('error', 'Doação não encontrado!');
 
     }
 
