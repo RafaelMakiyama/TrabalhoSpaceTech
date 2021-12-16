@@ -24,13 +24,36 @@ class InsertDonorRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'telephone' => 'required',
-            'email' => 'required',
-            'weight' => 'required',
-            'smoker' => 'required',
-            'disease' => 'required',
-            'comments' => 'required'
+            'name' => 'required|string|min:2',
+            'telephone' => 'required|min:2',
+            'email' => 'required|min:2|email',
+            'weight' => 'required|numeric|min:2',
+            'smoker' => 'required|boolean',
+            'disease' => 'required|boolean',
+            'comments' => 'required|string|min:2'
         ];
     }
+
+    public function messages(){
+        return [
+            'name.required' => 'O nome é obrigatório',
+            'name.min' => 'O nome deve ter no mínimo 2 caracteres',
+            'telephone.required' => 'O telefone é obrigatório',
+            'telephone.min' => 'O telefone deve ter no mínimo 2 caracteres',
+            'email.min' => 'A email deve ter no mínimo 2 caracteres',
+            'email.max' => 'O email deve ter no máximo 255 caracteres',
+            'email.email' => 'O email deve ser válido',
+            'weight.required' => 'A quantidade de litros é obrigatória',
+            'weight.numeric' => 'A quantidade de litros deve ser um número',
+            'weight.min' => 'A quantidade de litros deve ter no mínimo 2 caracteres',
+            'smoker.required' => 'O campo fumante deve ser preenchido',
+            'smoker.bol' => 'O campo fumante deve ser preenchido',
+            'disease.required' => 'O campo doença deve ser preenchido',
+            'disease.bol' => 'O campo doença deve ser preenchido',
+            'comments.required' => 'Os comentários devem ser preenchidos',
+            'comments.min' => 'Os comentários devem ter no mínimo 2 caracteres'
+        ];
+    }
+
+
 }
