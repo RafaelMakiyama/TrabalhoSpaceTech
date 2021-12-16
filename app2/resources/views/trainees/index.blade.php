@@ -24,7 +24,8 @@
               <td>{{ $trainee->telephone }} </td>
               <td>{{ $trainee->email }} </td>
               <td>
-                <a href="{{route("estagiarios.edit", $trainee->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+              <a href="{{route("estagiarios.show", $trainee->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <a href="{{route("estagiarios.edit", $trainee->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i></button></a>
                 <form action="{{route('estagiarios.destroy', $trainee->id)}}" method="post">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">

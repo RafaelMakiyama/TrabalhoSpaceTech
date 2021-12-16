@@ -49,7 +49,11 @@ class TraineeController extends Controller
      */
     public function show($id)
     {
-        //
+        $trainee = Trainee::find($id);
+        if($trainee) {
+            return view('trainees.show', compact('trainee'));
+        }
+        return redirect()->back()->with('error', 'Paciente não encontrado!');
     }
 
     /**
