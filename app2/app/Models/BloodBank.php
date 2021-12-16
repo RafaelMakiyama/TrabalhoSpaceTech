@@ -10,7 +10,8 @@ class BloodBank extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type','compatibility'
+        'type',
+        'compatibility'
     ];
     
 }

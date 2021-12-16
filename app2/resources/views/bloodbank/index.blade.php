@@ -10,6 +10,7 @@
               <th scope="col">ID</th>
               <th scope="col">Tipo</th>
               <th scope="col">Compatibilidade</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>

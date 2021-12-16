@@ -4,5 +4,5 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Compatibilidade</label>
-    <input type="text" class="form-control" name="compatibility" value="{{  $doctor->compatibility ?? old('compatibility') }}" >
+    <input type="text" class="form-control" name="compatibility" value="{{  $bloodBank->compatibility ?? old('compatibility') }}" >
   </div>

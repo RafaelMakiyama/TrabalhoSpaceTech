@@ -7,7 +7,8 @@
     @csrf
     @include('bloodbank.form')
     <button type="submit" class="btn btn-primary">Cadastrar banco de sangue</button>
+</form>
+<br>
+<a href="{{route('banco-de-sangue.index')}}" class="btn btn-secondary">Voltar</a>
 
-  </form>
-
-  @endsection
+@endsection
