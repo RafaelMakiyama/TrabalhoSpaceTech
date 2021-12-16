@@ -13,7 +13,11 @@
         Route::is('doadores.show')
         ) ? 'active': ''}}" href="{{route('doadores.index')}}">Doadores</a></li>
     
-    <li><a class="{{Route::is('banco-de-sangue') ? 'active': ''}}" href="{{ route('banco-de-sangue.index')}}">Banco de Sangue</a></li>
+    <li><a class="{{
+        Route::is('banco-de-sangue.index') ||
+        Route::is('banco-de-sangue.create')||
+        Route::is('banco-de-sangue.edit') ||
+        Route::is('banco-de-sangue.show') ? 'active': ''}}" href="{{ route('banco-de-sangue.index')}}">Banco de Sangue</a></li>
     
     <li><a class="{{(  Route::is('estagiarios.index')||
         Route::is('estagiarios.create')||

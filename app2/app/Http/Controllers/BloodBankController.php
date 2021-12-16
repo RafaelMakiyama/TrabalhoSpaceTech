@@ -38,7 +38,7 @@ class BloodBankController extends Controller
     public function store(BloodBankRequest $request)
     {
         $bloodBank = BloodBank::create($request->all());
-        return redirect()->route('banco-de-sangue.index');
+        return redirect()->route('banco-de-sangue.index')->with('message', "Banco de sangue {$bloodBank->id} cadastrado com sucesso!");
     }
 
     /**
@@ -49,7 +49,8 @@ class BloodBankController extends Controller
      */
     public function show($id)
     {
-        //
+        $bloodBank = BloodBank::find($id);
+        return view('bloodbank.show', compact('bloodBank'));   
     }
 
     /**

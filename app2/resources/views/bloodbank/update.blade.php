@@ -5,17 +5,10 @@
 <form method="POST" action="{{ route('banco-de-sangue.update', $bloodBank->id )}}">
     @csrf
     @method('PUT')
-
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Tipo</label>
-      <input type="text" class="form-control" id="type" name="type" value="{{ $bloodBank->type}}" >
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Compatibilidade</label>
-      <input type="text" class="form-control" name="compatibility" value="{{ $bloodBank->compatibility}}" >
-    </div>
+    @include('bloodbank.form')
     <button type="submit" class="btn btn-primary">Atualizar banco de sangue</button>
 </form>
 
-
-  @endsection
+<br>
+<a href="{{route('banco-de-sangue.index')}}" class="btn btn-secondary">Voltar</a>
+@endsection

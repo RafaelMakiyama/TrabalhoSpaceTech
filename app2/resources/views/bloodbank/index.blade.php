@@ -10,6 +10,7 @@
               <th scope="col">ID</th>
               <th scope="col">Tipo</th>
               <th scope="col">Compatibilidade</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -19,7 +20,8 @@
               <td>{{ $blood->type }}</td>
               <td>{{ $blood->compatibility }} </td>
               <td>
-                <a href="{{route('banco-de-sangue.edit', $blood->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <a href="{{route("banco-de-sangue.show", $blood->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <a href="{{route('banco-de-sangue.edit', $blood->id ) }}"><button type="button" class="btn btn-primary"><i class="far fa-edit"></i></button></a>
                 <form action="{{ route('banco-de-sangue.destroy', $blood->id) }}" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{csrf_token()}}"> 

@@ -25,7 +25,8 @@
               <td>{{ $donation->email }} </td>
               <td>{{ $donation->amnt_donor_liters }} </td>
               <td>
-                <a href="{{route("doacoes.edit", $donation->id ) }}"><button type="submit" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                  <a href="{{route("doacoes.show", $donation->id ) }}"><button type="submit" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+                <a href="{{route("doacoes.edit", $donation->id ) }}"><button type="submit" class="btn btn-primary"><i class="far fa-edit"></i></button></a>
                 <form action="{{route('doacoes.destroy', $donation->id)}}" method="POST">
                     @csrf
                     @method("DELETE")
