@@ -25,7 +25,5 @@
 
     <button type="submit" class="btn btn-primary">Atualizar estagiario</button>
   </form>
-  <br>
-  <a href="{{route('estagiarios.index')}}" class="btn btn-secondary">Voltar</a>
 
   @endsection
