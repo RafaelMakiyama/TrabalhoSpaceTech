@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\InsertUpdatePatientRequest;
+use App\Http\Requests\InsertPatientRequest;
 use App\Models\Patient;
-use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
@@ -32,10 +31,10 @@ class PatientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Requests\InsertUpdatePatientRequest  $request
+     * @param  \Illuminate\Http\Requests\InsertPatientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InsertUpdatePatientRequest $request)
+    public function store(InsertPatientRequest $request)
     {
         $patient = Patient::create($request->all());
         if ($patient) {
@@ -77,11 +76,11 @@ class PatientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Requests\InsertUpdatePatientRequest  $request
+     * @param  \Illuminate\Http\Requests\InsertPatientRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(InsertUpdatePatientRequest $request, $id)
+    public function update(InsertPatientRequest $request, $id)
     {
         $patient = Patient::find($id);
         if($patient) {
