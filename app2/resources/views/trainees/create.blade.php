@@ -7,5 +7,5 @@
 @include('trainees.form')
     <button type="submit" class="btn btn-primary">Cadastrar</button>
   </form>
-
+  <a href="{{route('estagiarios.index')}}" class="btn btn-secondary">Voltar</a>
 @endsection
