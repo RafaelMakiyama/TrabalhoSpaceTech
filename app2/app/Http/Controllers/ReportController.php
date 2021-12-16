@@ -9,14 +9,23 @@ class ReportController extends Controller
 {
     public function administativeReport(){
         $doctors = Doctor::latest()->paginate(5, ['*'], 'doctors');
+        $doctorsTotal = Doctor::all()->count();
+
         $trainees = Trainee::latest()->paginate(5, ['*'], 'trainees');
-        return view('reports.administrative', compact('doctors', 'trainees'));
+        $traineesTotal = Trainee::all()->count();
+
+        return view('reports.administrative', compact('doctors', 'doctorsTotal' , 'trainees' , 'traineesTotal'));
     }
 
     public function doacaoReport(){
         $donors = Donor::latest()->paginate(5, ['*'], 'donors');
+        $donorsTotal = Donor::all()->count();
+
         $bloodBanks = BloodBank::latest()->paginate(5, ['*'], 'bloodBanks');
+        $bloodBanksTotal = BloodBank::all()->count();
+
         $donations = Donation::latest()->paginate(5, ['*'], 'donations');
-        return view('reports.donation', compact('donors', 'bloodBanks','donations'));
+        $donationsTotal = Donation::all()->count();
+        return view('reports.donation', compact('donors', 'bloodBanks', 'bloodBanksTotal' ,'donations', 'donorsTotal','donationsTotal'));
     }
 }

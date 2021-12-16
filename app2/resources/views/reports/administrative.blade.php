@@ -2,7 +2,7 @@
 @section('pageTitle', 'Relatório Administrativo')
 @section('body')
 @include('layouts.alerts')        
-    <h4>Médicos: {{$doctors->count()}}</h4>
+    <h4>Médicos: {{$doctorsTotal}}</h4>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -33,7 +33,7 @@
         {{ $doctors->appends(['trainees' => $trainees->currentPage()])->links() }}
     </div>    
     <hr>
-    <h4>Estagiários: {{$trainees->count()}}</h4>
+    <h4>Estagiários: {{$traineesTotal}}</h4>
     <table class="table table-bordered">
         <thead>
           <tr>

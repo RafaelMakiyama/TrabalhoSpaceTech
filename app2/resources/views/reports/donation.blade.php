@@ -2,7 +2,7 @@
 @section('pageTitle', 'Relatório de Doacão')
 @section('body')
 @include('layouts.alerts')
-<h4>Doadores: {{$donors->count()}}</h4>
+<h4>Doadores: {{$donorsTotal}}</h4>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -38,7 +38,7 @@
 
 <br>
 
-<h4>Bancos de sangue: {{$bloodBanks->count()}}</h4>
+<h4>Bancos de sangue: {{$bloodBanksTotal}}</h4>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -62,7 +62,7 @@
 </div>
 <br>
 
-<h4>Doações: {{$donations->count()}}</h4>
+<h4>Doações: {{$donationsTotal}}</h4>
 <table class="table table-bordered">
     <thead>
         <tr>
