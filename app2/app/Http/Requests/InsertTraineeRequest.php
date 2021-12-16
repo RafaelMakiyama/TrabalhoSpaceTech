@@ -27,7 +27,7 @@ class InsertTraineeRequest extends FormRequest
         return [
             'name' => 'required|min:2',
             'scholarity' => 'required|min:2',
-            'telephone' => 'required|min:2|numeric',
+            'telephone' => 'required|min:2',
             "email" => "required|email|min:2",
         ];
     }
@@ -40,7 +40,6 @@ class InsertTraineeRequest extends FormRequest
             'scholarity.min' => 'A escolaridade deve ter no mínimo 2 caracteres',
             'telephone.required' => 'O telefone é obrigatório',
             'telephone.min' => 'O telefone deve ter no mínimo 2 caracteres',
-            'telephone.numeric' => 'O telefone deve ser um número',
             'email.required' => 'o email é obrigatório',
             'email.min' => 'O email deve ter no mínimo 2 caracteres',
             'email.max' => 'O email deve ter no máximo 255 caracteres',
