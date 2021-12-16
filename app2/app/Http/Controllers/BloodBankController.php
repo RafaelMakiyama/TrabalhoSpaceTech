@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BloodBankRequest;
+use App\Http\Requests\InsertBloodBankRequest;
 use App\Models\BloodBank;
-use Illuminate\Http\Request;
 
 class BloodBankController extends Controller
 {
@@ -32,10 +31,10 @@ class BloodBankController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\InsertBloodBankRequest;  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BloodBankRequest $request)
+    public function store(InsertBloodBankRequest $request)
     {
         $bloodBank = BloodBank::create($request->all());
         return redirect()->route('banco-de-sangue.index')->with('message', "Banco de sangue {$bloodBank->id} cadastrado com sucesso!");
@@ -68,11 +67,11 @@ class BloodBankController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\InsertBloodBankRequest;  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BloodBankRequest $request, $id)
+    public function update(InsertBloodBankRequest $request, $id)
     {
         $bloodBank = BloodBank::find($id);
         
