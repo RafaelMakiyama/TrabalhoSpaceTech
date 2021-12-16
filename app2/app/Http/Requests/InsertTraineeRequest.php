@@ -25,10 +25,26 @@ class InsertTraineeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'scholarity' => 'required',
-            'telephone' => 'numeric',
-            "email" => "required",
+            'name' => 'required|min:2',
+            'scholarity' => 'required|min:2',
+            'telephone' => 'required|min:2|numeric',
+            "email" => "required|email|min:2",
+        ];
+    }
+
+    public function messages(){
+        return [
+            'name.required' => 'O nome é obrigatório',
+            'name.min' => 'O nome deve ter no mínimo 2 caracteres',
+            'scholarity.required' => 'A escolaridade é obrigatória',
+            'scholarity.min' => 'A escolaridade deve ter no mínimo 2 caracteres',
+            'telephone.required' => 'O telefone é obrigatório',
+            'telephone.min' => 'O telefone deve ter no mínimo 2 caracteres',
+            'telephone.numeric' => 'O telefone deve ser um número',
+            'email.required' => 'o email é obrigatório',
+            'email.min' => 'O email deve ter no mínimo 2 caracteres',
+            'email.max' => 'O email deve ter no máximo 255 caracteres',
+            'email.email' => 'O email deve ser válido',
         ];
     }
 }
