@@ -69,7 +69,7 @@ class PatientController extends Controller
     {
         $patient = Patient::find($id);
         if($patient) {
-            return view('patients.edit', compact('patient'));
+            return view('patients.update', compact('patient'));
         }
         return redirect()->back()->with('error', 'Paciente não encontrado!');
     }
