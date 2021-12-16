@@ -3,7 +3,7 @@
 @section('body')
 @include('layouts.alerts')
 
-<a href={{route('doadores.create')}}> <button type="button" class="btn btn-primary">Adicionar Doadores</button></a><br><br>
+<a href={{route('doadores.create')}}> <button type="button" class="btn btn-primary">Adicionar Doador</button></a><br><br>
 <table class="table table-bordered">
   <thead>
     <tr>
