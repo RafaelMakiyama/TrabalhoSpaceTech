@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Trainee,Doctor,Donor,BloodBank,Donation};
+use App\Models\{Trainee,Doctor,Donor,BloodBank,Donation, Patient};
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -14,7 +14,10 @@ class ReportController extends Controller
         $trainees = Trainee::latest()->paginate(5, ['*'], 'trainees');
         $traineesTotal = Trainee::all()->count();
 
-        return view('reports.administrative', compact('doctors', 'doctorsTotal' , 'trainees' , 'traineesTotal'));
+        $patients = Patient::latest()->paginate(5, ['*'], 'patients');
+        $patientsTotal = Trainee::all()->count();
+
+        return view('reports.administrative', compact('doctors', 'doctorsTotal' , 'trainees' , 'traineesTotal', 'patients' , 'patientsTotal'));
     }
 
     public function doacaoReport(){

@@ -30,7 +30,7 @@
         </tbody>
     </table>
     <div class="col-12 d-flex justify-content-center">
-        {{ $doctors->appends(['trainees' => $trainees->currentPage()])->links() }}
+        {{ $doctors->appends(['trainees' => $trainees->currentPage(), 'patients' => $patients->currentPage()])->links() }}
     </div>    
     <hr>
     <h4>Estagiários: {{$traineesTotal}}</h4>
@@ -57,7 +57,40 @@
         </tbody>
       </table>
       <div class="col-12 d-flex justify-content-center">
-        {{ $trainees->appends(['doctors' => $doctors->currentPage()])->links() }}
+        {{ $trainees->appends(['doctors' => $doctors->currentPage(), 'patients' => $patients->currentPage()])->links() }}
+      </div>
+      <hr>
+      <h4>Pacientes: {{$patientsTotal}}</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Sobrenome</th>
+              <th scope="col">Idade</th>
+              <th scope="col">Endereço</th>
+              <th scope="col">Telefone</th>
+              <th scope="col">Email</th>
+              <th scope="col">É Doador?</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach($patients as $patient)
+          <tr>
+              <td>{{ $patient->id }} </td>
+              <td>{{ $patient->name }}</td>
+              <td>{{ $patient->surname }} </td>
+              <td>{{ $patient->age }} </td>
+              <td>{{ $patient->address }} </td>
+              <td>{{ $patient->telephone }} </td>
+              <td>{{ $patient->email }} </td>
+              <td>{{ $patient ?? ''->is_donor ? 'Sim' : 'Não' }}</td>
+          </tr>
+            @endforeach
+        </tbody>
+      </table>
+      <div class="col-12 d-flex justify-content-center">
+        {{ $patients->appends(['doctors' => $doctors->currentPage(), 'trainees' => $trainees->currentPage()])->links() }}
       </div>
       <br>
       <a href="{{route('relatorio.index')}}" class="btn btn-secondary">Voltar</a>
