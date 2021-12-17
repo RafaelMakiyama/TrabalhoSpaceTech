@@ -26,7 +26,7 @@ class InsertDonationRequest extends FormRequest
         return [
             "donor_name"        => "required|min:2",
             "cell"              => "required|min:2",
-            "email"             => "required|min:2|email",
+            "email"             => "required|min:2|email|unique:donations,email",
             "amnt_donor_liters" => "required|numeric|min:2",
         ];
     }
@@ -41,6 +41,7 @@ class InsertDonationRequest extends FormRequest
             'email.min' => 'O email deve ter no mínimo 2 caracteres',
             'email.max' => 'O email deve ter no máximo 255 caracteres',
             'email.email' => 'O email deve ser válido',
+            'email.unique' => 'Email já cadastrado!',
             'amnt_donor_liters.required' => 'A quantidade de litros é obrigatória',
             'amnt_donor_liters.numeric' => 'A quantidade de litros deve ser um número',
             'amnt_donor_liters.min' => 'A quantidade de litros deve ter no mínimo 2 caracteres'

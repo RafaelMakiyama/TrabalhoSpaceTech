@@ -24,8 +24,8 @@ class InsertDoctorRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:2',
             'crm' => 'required|min:2',
+            'name' => 'required|min:2',
             'age'=> 'required|numeric|min:2',
             'work_ocupattion' => 'required|string|min:2',
             'telephone' => 'required|string|min:2|max:255',
@@ -35,10 +35,10 @@ class InsertDoctorRequest extends FormRequest
 
     public function messages(){
         return [
-            'name.required' => 'O nome é obrigatório',
-            'name.min' => 'O nome deve ter no mínimo 2 caracteres',            
             'crm.required' => 'O CRM é obrigatório',
             'crm.min' => 'O CRM deve ter no mínimo 2 caracteres',
+            'name.required' => 'O nome é obrigatório',
+            'name.min' => 'O nome deve ter no mínimo 2 caracteres',
             'age.required' => 'A idade é obrigatória',
             'age.numeric' => 'A idade deve ser um número',
             'work_ocupattion.required' => 'A área de atuação é obrigatória',
@@ -46,7 +46,7 @@ class InsertDoctorRequest extends FormRequest
             'work_ocupattion.min' => 'A área de atuação deve ter no mínimo 2 caracteres',
             'telephone.required' => 'O telefone é obrigatório',
             'telephone.min' => 'O telefone deve ter no mínimo 2 caracteres',
-            'telephone.max' => 'O telefone deve ter no máximo 255 caracteres',            
+            'telephone.max' => 'O telefone deve ter no máximo 255 caracteres',
             'email.required' => 'O email é obrigatório',
             'email.min' => 'O email deve ter no mínimo 2 caracteres',
             'email.max' => 'O email deve ter no máximo 255 caracteres',
