@@ -1,4 +1,6 @@
 <ul>
+    <li><a class="{{Route::is('home') ? 'active': ''}}" href="{{route('home')}}">Início</a></li>
+
     <li><a class="{{(
         Route::is('medicos.index')||
         Route::is('medicos.create')||

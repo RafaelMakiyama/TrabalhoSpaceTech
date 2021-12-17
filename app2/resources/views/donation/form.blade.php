@@ -20,6 +20,6 @@
 <div class="mb-3">
     <label for="endereco" class="form-label">Qntd de Litros</label>
     <input type="number" class="form-control" name="amnt_donor_liters"
-            value="{{$donation->amnt_donor_liters ?? old('address') }}"
+            value="{{$donation->amnt_donor_liters ?? old('amnt_donor_liters') }}"
             placeholder="Informe a quantidade de Litros">
 </div>
