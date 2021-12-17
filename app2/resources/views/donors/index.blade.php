@@ -44,5 +44,7 @@
       @endforeach
   </tbody>
 </table>
-
+<div class="col-12 d-flex justify-content-center">
+  {{ $donors->links() }}
+</div>
 @endsection

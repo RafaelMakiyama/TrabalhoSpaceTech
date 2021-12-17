@@ -26,7 +26,7 @@ class InsertDonorRequest extends FormRequest
         return [
             'name' => 'required|string|min:2',
             'telephone' => 'required|min:2',
-            'email' => 'required|min:2|email',
+            'email' => 'required|unique:donors,email|min:2|email',
             'weight' => 'required|string|min:2',
             'height' => 'required|string|min:2',
             'smoker' => 'required|boolean',
@@ -44,6 +44,7 @@ class InsertDonorRequest extends FormRequest
             'email.min' => 'O email deve ter no mínimo 2 caracteres',
             'email.max' => 'O email deve ter no máximo 255 caracteres',
             'email.email' => 'O email deve ser válido',
+            'email.unique' => 'Email já cadastrado!',
             'weight.required' => 'O peso é obrigatório',
             'weight.min' => 'O peso deve ter no mínimo 2 caracteres',
             'height.required' => 'A altura é obrigatória',
