@@ -33,7 +33,7 @@
 </table>
 
 <div class="col-12 d-flex justify-content-center">
-    {{ $donors->appends(['bloodBanks' => $bloodBanks->currentPage()])->links() }}
+    {{ $donors->appends(['bloodBanks' => $bloodBanks->currentPage(), 'donations' => $donations->currentPage()])->links() }}
 </div>
 
 <br>
@@ -58,7 +58,7 @@
     </tbody>
 </table>
 <div class="col-12 d-flex justify-content-center">
-    {{ $bloodBanks->appends(['donors' => $donors->currentPage()])->links() }}
+    {{ $bloodBanks->appends(['donors' => $donors->currentPage(), 'donations' => $donations->currentPage()])->links(), }}
 </div>
 <br>
 
@@ -86,7 +86,7 @@
     </tbody>
 </table>
 <div class="col-12 d-flex justify-content-center">
-    {{ $donations->appends(['bloodBanks' => $bloodBanks->currentPage()])->links() }}
+    {{ $donations->appends(['bloodBanks' => $bloodBanks->currentPage(),'donors' => $donors->currentPage()])->links() }}
 </div>
 
 <a href="{{route('relatorio.index')}}" class="btn btn-secondary">Voltar</a>
