@@ -84,7 +84,7 @@ class TraineeController extends Controller
         endif;
 
         $trainee->update($request->all());
-        return redirect()->route('estagiarios.index')->with('message', "Estagiario {$id} atualizado com sucesso");
+        return redirect()->route('estagiarios.index')->with('message', "Estagiario {$trainee->name} atualizado com sucesso");
     }
 
     /**

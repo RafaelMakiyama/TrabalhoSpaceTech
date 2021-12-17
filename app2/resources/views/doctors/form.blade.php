@@ -2,7 +2,7 @@
 <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">CRM</label>
     <input type="text" class="form-control" id="crm" name="crm" 
-            value="{{ $doctor->id ?? old ('crm')}}"
+            value="{{ $doctor->crm ?? old ('crm')}}"
             placeholder="Informe o CRM">
 </div>
 <div class="mb-3">
