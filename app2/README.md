@@ -42,12 +42,15 @@ $ cd TrabalhoSpaceTech
 $ cd app2
 
 # Instale as dependências
-$ composer update
 $ composer install
 
 # Criar um banco de dados MySql
 
 # Copiar o .env.example para .env e realizar os ajustes de Banco de Dados com o banco criado anteriormente
+
+# Execute o comando para gerar a Key
+
+$ php artisan key:generate
 
 # Rodar as migrations para criar as tabelas no banco de dados
 $ php artisan migrate
