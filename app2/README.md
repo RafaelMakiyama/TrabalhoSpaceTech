@@ -87,7 +87,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 MIT License
 
-Copyright (c) <2020> <Seu Nome>
+Copyright (c) <2021>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
