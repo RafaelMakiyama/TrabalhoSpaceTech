@@ -16,6 +16,9 @@ class CreateFinancialPlansTable extends Migration
         Schema::create('financial_plans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name',45);
+            $table->integer('discount');
+            $table->string('observation')->nullable();
         });
     }
 
