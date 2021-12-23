@@ -15,7 +15,7 @@ class DonationController extends Controller
      */
     public function index()
     {
-        $donations = Donation::all();
+        $donations = Donation::latest()->paginate(5);
         return view('donation.index', compact('donations'));
     }
 
@@ -38,7 +38,7 @@ class DonationController extends Controller
     public function store(InsertDonationRequest  $request)
     {
         $donation = Donation::create($request->all());
-        return redirect()->route('doacoes.index')->with('message', "Doaçâo {$donation->donor_name} cadastrado com sucesso!");
+        return redirect()->route('doacoes.index')->with('message', "Doação {$donation->donor_name} cadastrado com sucesso!");
     }
 
     /**

@@ -36,5 +36,8 @@
               @endforeach
           </tbody>
         </table>
+        <div class="col-12 d-flex justify-content-center">
+            {{ $trainees->links() }}
+        </div>
 
 @endsection

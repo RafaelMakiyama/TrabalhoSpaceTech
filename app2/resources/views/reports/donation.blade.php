@@ -11,6 +11,7 @@
             <th scope="col">Telefone</th>
             <th scope="col">Email</th>
             <th scope="col">Peso</th>
+            <th scope="col">Altura</th>
             <th scope="col">Fumante ?</th>
             <th scope="col">Doença</th>
             <th scope="col">Comentarios</th>
@@ -24,6 +25,7 @@
             <td>{{ $donor->telephone }} </td>
             <td>{{ $donor->email }} </td>
             <td>{{ $donor->weight }} </td>
+            <td>{{ $donor->height }} </td>
             <td>{{ $donor->smoker ? 'Sim' : 'Não' }}</td>
             <td>{{ $donor->disease ? 'Sim' : 'Não' }}</td>
             <td>{{ $donor->comments }}</td>
@@ -33,7 +35,7 @@
 </table>
 
 <div class="col-12 d-flex justify-content-center">
-    {{ $donors->appends(['bloodBanks' => $bloodBanks->currentPage()])->links() }}
+    {{ $donors->appends(['bloodBanks' => $bloodBanks->currentPage(), 'donations' => $donations->currentPage()])->links() }}
 </div>
 
 <br>
@@ -58,7 +60,7 @@
     </tbody>
 </table>
 <div class="col-12 d-flex justify-content-center">
-    {{ $bloodBanks->appends(['donors' => $donors->currentPage()])->links() }}
+    {{ $bloodBanks->appends(['donors' => $donors->currentPage(), 'donations' => $donations->currentPage()])->links(), }}
 </div>
 <br>
 
@@ -86,7 +88,7 @@
     </tbody>
 </table>
 <div class="col-12 d-flex justify-content-center">
-    {{ $donations->appends(['bloodBanks' => $bloodBanks->currentPage()])->links() }}
+    {{ $donations->appends(['bloodBanks' => $bloodBanks->currentPage(),'donors' => $donors->currentPage()])->links() }}
 </div>
 
 <a href="{{route('relatorio.index')}}" class="btn btn-secondary">Voltar</a>
