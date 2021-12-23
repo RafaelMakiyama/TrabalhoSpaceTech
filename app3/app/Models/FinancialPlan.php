@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class FinancialPlan extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'discount',
+        'observation',
+    ];
+
+    public function Student(){
+        return $this->belongsTo(Student::class);
+    }
+
 }
