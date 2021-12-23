@@ -11,6 +11,7 @@
             <th scope="col">Telefone</th>
             <th scope="col">Email</th>
             <th scope="col">Peso</th>
+            <th scope="col">Altura</th>
             <th scope="col">Fumante ?</th>
             <th scope="col">Doença</th>
             <th scope="col">Comentarios</th>
@@ -24,6 +25,7 @@
             <td>{{ $donor->telephone }} </td>
             <td>{{ $donor->email }} </td>
             <td>{{ $donor->weight }} </td>
+            <td>{{ $donor->height }} </td>
             <td>{{ $donor->smoker ? 'Sim' : 'Não' }}</td>
             <td>{{ $donor->disease ? 'Sim' : 'Não' }}</td>
             <td>{{ $donor->comments }}</td>
