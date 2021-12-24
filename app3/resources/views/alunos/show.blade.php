@@ -1,9 +1,9 @@
 @extends('layouts.layout')
-@section('pageTitle', 'Aluno - '.$student->name)
+@section('pageTitle', 'Aluno - '.$student->fullname)
 @section('body')
 <div class="card">
     <div class="card-header">
-      {{$student->name.' '.$student->surname}}
+      {{$student->fullname.' '.$student->surname}}
     </div>
     <div class="card-body">
         <div class="row">
@@ -11,7 +11,7 @@
                 <p class="card-text">Nome:</p>
             </div>
             <div class="col">                
-                <h5 class="card-title">{{$student->name}}</h5>
+                <h5 class="card-title">{{$student->fullname}}</h5>
             </div>
         </div>
         <div class="row">

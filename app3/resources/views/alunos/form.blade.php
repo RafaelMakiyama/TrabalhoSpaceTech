@@ -13,9 +13,9 @@
             placeholder="Informe o Email">
 </div>
 <div class="mb-3">
-    <label for="name" class="form-label">Nome</label>
-    <input type="text" class="form-control" name="name" 
-            value="{{ $student->name ?? old ('name')}}" 
+    <label for="fullname" class="form-label">Nome</label>
+    <input type="text" class="form-control" name="fullname" 
+            value="{{ $student->fullname ?? old ('fullname')}}" 
             placeholder="Informe o nome do Aluno">
 </div>
 <div class="mb-3">

@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('registration', 45);
-            $table->string('name', 45);
+            $table->string('fullname', 45);
             $table->date('birthday');
             $table->string('financial_responsable', 45);
             $table->string('cpf', 15);
