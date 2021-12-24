@@ -21,7 +21,8 @@ class Student extends Model
         'financial_responsable',
         'cpf',
         'course_id',
-        'financial_plan_id'
+        'financial_plan_id',
+        'user_id'
     ]; 
 
     public function Course(){
@@ -30,6 +31,10 @@ class Student extends Model
 
     public function FinancialPlan(){
         return $this->hasOne(FinancialPlan::class,'id','financial_plan_id');
+    }
+
+    public function User(){
+        return $this->hasOne(User::class,'id','user_id');
     }
     
 }

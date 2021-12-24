@@ -56,6 +56,14 @@
         </div>
         <div class="row">
             <div class="col-2">
+                <p class="card-text">Plano:</p>
+            </div>
+            <div class="col">                
+                <h5 class="card-title">{{$financialPlan->name}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
                 <p class="card-text">Mensalidade:</p>
             </div>
             <div class="col">                
