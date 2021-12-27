@@ -16,11 +16,11 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->timestamps();
             $table->string('fullname', 45);
             $table->string('registration', 45);
             $table->string('competence', 45);
             $table->string('scholarity', 45);
+            $table->timestamps();
         });
     }
 
