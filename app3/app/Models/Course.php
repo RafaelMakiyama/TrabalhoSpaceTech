@@ -18,7 +18,11 @@ class Course extends Model
         'status'
     ];
 
-    public function Student(){
-         return $this->belongsTo(Student::class);
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
+
+    public function lesson(){
+        return $this->belongsTo(Lesson::class);
     }
 }
