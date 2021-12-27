@@ -45,9 +45,13 @@ class LessonController extends Controller
      * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function show(Lesson $lesson)
+    public function show($id)
     {
-        //
+        $lesson = Lesson::find($id);
+        if($lesson) {
+            return view('lesson.show', compact('lesson'));
+        }
+        return redirect()->back()->with('error', 'Aula não encontrada!');
     }
 
     /**
