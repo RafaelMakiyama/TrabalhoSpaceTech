@@ -25,15 +25,12 @@ class StoreUpdateStudent extends FormRequest
      */
     public function rules()
     {
-        // dd($this->user_id);
         $rules = [
-            'username' => 'required|min:3|max:255',
-            // 'email' => 'required|email|max:255|unique:users,email',
-            // 'email' => 'required|email|unique:users,email' . ($exists ? ',' . $user->id : ''),
+            'name' => 'required|min:3|max:255',
             'registration' => 'required|string|max:45',
-            'name' => 'required|string|max:45',
-            'birthday' => 'required|date|age:financial_responsable,name',
-            // 'financial_responsable' => 'required|string|max:45',
+            'fullname' => 'required|string|max:45',
+            'birthday' => 'required|date|age:financial_responsable,fullname',
+            'financial_responsable' => 'required|string|max:45',
             'cpf' => 'required|string|max:15|cpf',
             'course_id' => 'required|integer',
             'financial_plan_id' => 'required|integer'
@@ -43,38 +40,43 @@ class StoreUpdateStudent extends FormRequest
         {
             case 'POST':
             {
-                return $rules[] =  ['email' => 'required|email|unique:users,email'];
+                $rules_plus = [
+                    'email' => 'required|email|unique:users,email'
+                ];                
+                return $rules = array_merge($rules, $rules_plus);
             }
             case 'PUT' : {
-                // dd($this->user_id);
-                return $rules[] = ['email' => 'required|email|'.Rule::unique('users', 'email')->ignore($this->user_id),];
-                // dd($rules);
+                $rules_plus = [
+                    'email' => 'required|email|'.Rule::unique('users', 'email')->ignore($this->user_id),
+                    'name' => 'required|name|'.Rule::unique('users', 'name')->ignore($this->user_id)
+                ];
+                return $rules = array_merge($rules, $rules_plus);
             }
             default:break;
         }
-        // dd($this->method);
         return $rules;
     }
 
     public function messages()
     {
         return [
-            'username.required' => 'O campo nome de usuário é obrigatório',
-            'username.min' => 'O campo nome de usuário deve ter no mínimo 3 caracteres',
-            'username.max' => 'O campo nome de usuário deve ter no máximo 255 caracteres',
+            'name.required' => 'O campo nome de usuário é obrigatório',
+            'name.min' => 'O campo nome de usuário deve ter no mínimo 3 caracteres',
+            'name.max' => 'O campo nome de usuário deve ter no máximo 255 caracteres',
+            'name.unique' => 'O nome de usuário informado já está em uso',
             'email.required' => 'O campo e-mail é obrigatório',
             'email.email' => 'O campo e-mail deve ser um e-mail válido',
             'email.max' => 'O campo e-mail deve ter no máximo 255 caracteres',
             'email.unique' => 'O e-mail informado já está cadastrado',
             'registration.required' => 'O campo matrícula é obrigatório.',
-            'name.required' => 'O campo nome é obrigatório.',
-            'name.max' => 'O campo nome deve ter no máximo 45 caracteres.',
+            'fullname.required' => 'O campo nome é obrigatório.',
+            'fullname.max' => 'O campo nome deve ter no máximo 45 caracteres.',
             'birthday.required' => 'O campo data de nascimento é obrigatório.',
             'birthday.date' => 'O campo data de nascimento deve ser uma data válida.',
             'birthday.age' => 'Quando menor de 18, deve ser informado o Responsável Financeiro.',
-            // 'financial_responsable.required' => 'O campo responsável financeiro é obrigatório.',
-            // 'financial_responsable.string' => 'O campo responsável financeiro deve ser uma string.',
-            // 'financial_responsable.max' => 'O campo responsável financeiro deve ter no máximo 45 caracteres.',
+            'financial_responsable.required' => 'O campo responsável financeiro é obrigatório.',
+            'financial_responsable.string' => 'O campo responsável financeiro deve ser uma string.',
+            'financial_responsable.max' => 'O campo responsável financeiro deve ter no máximo 45 caracteres.',
             'cpf.required' => 'O campo CPF é obrigatório.',
             'cpf.max' => 'O campo CPF deve ter no máximo 15 caracteres.',
             'cpf.cpf' => 'O campo CPF deve ser um CPF válido.',            
