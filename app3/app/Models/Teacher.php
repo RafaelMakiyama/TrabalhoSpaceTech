@@ -33,7 +33,7 @@ class Teacher extends Model
          */
 
         $user = User::create([
-            'name' => $dados->username,
+            'name' => $dados->name,
             'email' => $dados->email,
             'password' => Hash::make($generatePassword($dados->name, $dados->registration)),
         ]);
@@ -44,5 +44,27 @@ class Teacher extends Model
             'competence' => $dados->competence,
             'scholarity' => $dados->scholarity,
         ]);        
-    } 
+    }
+
+    public function updateTeacher($dados){
+        $user =  User::find($dados->user_id);
+
+        $user->update([
+            'name' => $dados->name,
+            'email' => $dados->email,
+        ]);
+
+       
+
+        $user->teachers()->update([
+            'fullname' => $dados->fullname,
+            'registration' => $dados->registration,
+            'competence' => $dados->competence,
+            'scholarity' => $dados->scholarity,
+        ]); 
+
+        return $user;
+   
+    }
+    
 }

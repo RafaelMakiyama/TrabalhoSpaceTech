@@ -6,6 +6,7 @@
 <form method="POST" action="{{ route('professor.update', $teacher->id )}}">
   @method('PUT')
   @csrf
+  @include('teacher.user')
   @include('teacher.form')
   <button type="submit" class="btn btn-primary">Atualizar professor</button>
 </form>

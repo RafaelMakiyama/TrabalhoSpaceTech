@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TeacherRequest;
 use App\Models\Teacher;
 use App\Models\User;
 use App\Services\GenerateStandardPassword;
@@ -39,9 +40,8 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeacherRequest $request)
     {   
-        
         DB::beginTransaction();        
         try{
             $teacher = new Teacher();
@@ -54,7 +54,7 @@ class TeacherController extends Controller
         }
 
         return redirect()->route('professor.index')->with('message',"O professor $teacher->name foi criado com sucesso!");
-        
+    
     }
 
     /**
@@ -63,9 +63,10 @@ class TeacherController extends Controller
      * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function show(Teacher $teacher)
+    public function show($id)
     {
-        //
+        $teacher = Teacher::where('id', $id)->with('user')->first();
+        return view('teacher.show', compact('teacher'));
     }
 
     /**
@@ -76,7 +77,7 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
-        $teacher = Teacher::find($id);
+        $teacher = Teacher::where('id', $id)->with('user')->first();
         return view('teacher.update', compact('teacher'));
     }
 
@@ -87,16 +88,25 @@ class TeacherController extends Controller
      * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TeacherRequest $request, $id)
     {
-        $teacher = Teacher::find($id);
+        DB::beginTransaction();        
+        try{
+            $teacher = new Teacher();
+            echo('aqui');
+            $teacher = $teacher->updateTeacher($request);
 
-        if(!$teacher):
-            return redirect()->back();
-        endif;
+            if(!$teacher):
+                return redirect()->back();
+            endif;
 
-        $teacher->update($request->all());
-        return redirect()->route('professor.index')->with('message', "Professor {$teacher->name} atualizado com sucesso");
+            DB::commit();
+        } catch(\Exception $e){
+            DB::rollBack();
+            Log::channel('teacher')->warning('Falha na atualização do professor', [$e]);
+            return view('teacher.update')->with('message');
+        }
+        return redirect()->route('professor.index')->with('message', "Professor {$request->fullname} atualizado com sucesso");
     }
 
     /**
