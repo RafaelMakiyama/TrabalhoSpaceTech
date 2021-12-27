@@ -1,8 +1,21 @@
 @csrf
 <div class="mb-3">
-    <label for="name" class="form-label">Nome</label>
+    <label for="username" class="form-label">Nome de Usuário</label>
+    <input type="hidden" name="user_id" value="{{$student->user_id ?? ''}}">    
     <input type="text" class="form-control" name="name" 
-            value="{{ $student->name ?? old ('name')}}" 
+            value="{{ $student->user->name ?? old ('name')}}" 
+            placeholder="Informe o nome de Usuario">
+</div>
+<div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" class="form-control" name="email" 
+            value="{{ $student->user->email ?? old ('email')}}" 
+            placeholder="Informe o Email">
+</div>
+<div class="mb-3">
+    <label for="fullname" class="form-label">Nome</label>
+    <input type="text" class="form-control" name="fullname" 
+            value="{{ $student->fullname ?? old ('fullname')}}" 
             placeholder="Informe o nome do Aluno">
 </div>
 <div class="mb-3">
@@ -19,7 +32,7 @@
 </div>
 <div class="mb-3">
     <label for="financial_responsable" class="form-label">Responsável Financeiro</label>
-    <input type="string" class="form-control" name="financial_responsable" 
+    <input type="text" class="form-control" name="financial_responsable" 
             value="{{$student->financial_responsable ?? old('financial_responsable') }}"
             placeholder="Informe o Responsável Financeiro do Aluno">
 </div>

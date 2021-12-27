@@ -7,7 +7,10 @@ use App\Models\Course;
 use App\Models\FinancialPlan;
 use App\Models\Lesson;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class StudentController extends Controller
 {
@@ -19,7 +22,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::paginate(8);
-        return view('alunos.index', compact('students'));
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -31,7 +34,7 @@ class StudentController extends Controller
     {
         $courses = Course::all();
         $financialPlans = FinancialPlan::all();
-        return view('alunos.create', compact('courses', 'financialPlans'));
+        return view('student.create', compact('courses', 'financialPlans'));
     }
 
     /**
@@ -42,61 +45,74 @@ class StudentController extends Controller
      */
     public function store(StoreUpdateStudent $request)
     {
-        $student = Student::create($request->all());
-        if($student){
-            return redirect()->route('alunos.index')->with('message', "Aluno {$student->name} cadastrado com sucesso!");
+        // dd($request->all());
+        DB::beginTransaction();
+        try{
+            $student = new Student();
+            $student = $student->createStudent($request);
+            DB::commit();
+        } catch(\Exception $e){
+            DB::rollBack();
+            Log::channel('single')->warning('Falha na criação do aluno', [$e]);
+            return redirect()->back()->with('message');
         }
+        
+        return redirect()->route('alunos.index')->with('message',"O aluno $student->fullname foi criado com sucesso!");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $student = Student::find($id);
+        $student = Student::where('id', $id)->with('user')->with('course')->with('financialPlan')->first();
         $lessons = Lesson::where('course_id', $student->course_id)->get();
-        $course = Course::find($student->course_id);
-        $financialPlan = FinancialPlan::find($student->financial_plan_id);
-        return view('alunos.show', compact('student', 'lessons', 'course', 'financialPlan'));
+        return view('student.show', compact('student', 'lessons'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $student = Student::find($id);
+        $user = User::find($student->user_id);
         $courses = Course::all();
         $financialPlans = FinancialPlan::all();
-        return view('alunos.update', compact('student', 'courses', 'financialPlans'));
+        return view('student.update', compact('student', 'user', 'courses', 'financialPlans'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Requests\StoreUpdateStudent  $request
-     * @param  \App\Models\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(StoreUpdateStudent $request, $id)
     {
-        $student = Student::find($id);
-        $student->update($request->all());
-        if($student){
-            return redirect()->route('alunos.index')->with('message', "Aluno {$student->name} atualizado com sucesso!");
-        }        
+        DB::beginTransaction();
+        try{
+            $student = new Student();
+            $student = $student->updateStudent($request, $id);        
+            DB::commit();
+            return redirect()->route('alunos.index')->with('message', "Aluno {$request->fullname} atualizado com sucesso!");
+        }catch(\Exception $e){
+            DB::rollback();
+            return redirect()->back()->with('error', $e->getMessage());            
+        }                
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -104,7 +120,7 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->delete();
         if($student){
-            return redirect()->route('alunos.index')->with('message', "Aluno {$id} excluído com sucesso!");
+            return redirect()->route('student.index')->with('message', "Aluno {$id} excluído com sucesso!");
         }
     }
 }

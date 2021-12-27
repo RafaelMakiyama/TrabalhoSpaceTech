@@ -17,11 +17,8 @@ class CreateDoctorsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('crm');
-            $table->string('name');
             $table->string('work_ocupattion');
-            $table->integer('age');
-            $table->string('telephone');
-            $table->string('email');
+            $table->foreignId('person_id')->constrained('person');
         });
     }
 

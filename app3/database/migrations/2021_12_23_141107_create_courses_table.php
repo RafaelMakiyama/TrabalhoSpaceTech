@@ -17,8 +17,8 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name', 45);
-            $table->integer('quanties_max_students');
-            $table->string('description', 200);
+            $table->integer('quantities_max_students');
+            $table->text('description', 200);
             $table->string('category', 45);
             $table->float('monthly');
             $table->string('status', 45);

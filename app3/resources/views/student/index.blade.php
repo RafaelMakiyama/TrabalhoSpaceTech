@@ -19,7 +19,7 @@
         @foreach($students as $student)
     <tr>
         <td>{{ $student->id }} </td>
-        <td>{{ $student->name }}</td>
+        <td>{{ $student->fullname }}</td>
         <td>{{ $student->registration }} </td>
         <td>{{ date('d/m/Y', strtotime($student->birthday)); }} </td>
         <td>{{ $student->financial_responsable }} </td>

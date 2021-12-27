@@ -5,6 +5,7 @@ use App\Http\Controllers\FinancialPlanController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,4 @@ Route::resource('alunos', StudentController::class);
 Route::resource('cursos', CourseController::class);
 Route::resource('planos-financeiro', FinancialPlanController::class);
 Route::resource('aulas', LessonController::class);
+require __DIR__.'/auth.php';

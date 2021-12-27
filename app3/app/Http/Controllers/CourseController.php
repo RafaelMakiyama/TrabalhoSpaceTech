@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CourseRequest;
 use App\Models\Course;
+use Database\Seeders\CourseSeeder;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,7 +16,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::paginate(8);
+        return view('courses.index', compact('courses'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('courses.create');
     }
 
     /**
@@ -33,9 +36,10 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
-        //
+        $course = Course::create($request->all());
+        return redirect()->route('cursos.index')->with('message', "Curso de {$course->name} cadastrado com sucesso");
     }
 
     /**
@@ -44,9 +48,16 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show($id)
     {
-        //
+        $course = Course::find($id);
+
+        if($course){
+            return view('courses.show', compact('course'));
+        }
+
+        return redirect()->back()->with('erro', 'Curso não encontrado! :(');
+
     }
 
     /**
@@ -55,9 +66,10 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit($id)
     {
-        //
+        $course = Course::find($id);
+        return view('courses.update', compact('course'));
     }
 
     /**
@@ -67,9 +79,14 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(CourseRequest $request, $id)
     {
-        //
+        $course = Course::find($id);
+        if(!$course){
+            return redirect()->back();
+        }
+        $course->update($request->all());
+        return redirect()->route('cursos.index')->with('message', "Curso de {$course->name} atualizado com sucesso!");
     }
 
     /**
@@ -78,8 +95,14 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+        if($course){
+            return redirect()->back();
+        }
+
+        $course->delete();
+        return redirect()->route('cursos.index')->with('message', "Curso de {$course->name} deletado com sucesso!");
     }
 }
