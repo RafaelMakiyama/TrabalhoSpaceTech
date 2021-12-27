@@ -5,7 +5,7 @@
 
 <form method="POST" action="{{ route('alunos.update', $student->id)}}">
     @method('PUT')
-    @include('alunos.form')
+    @include('student.form')
     <button type="submit" class="btn btn-primary">Atualizar Aluno</button>
 </form>
 <br>

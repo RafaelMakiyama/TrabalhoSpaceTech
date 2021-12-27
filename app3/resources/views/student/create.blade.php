@@ -4,7 +4,7 @@
 @include('layouts.alerts')
 
 <form method="POST" action="{{ route('alunos.store')}}">
-    @include('alunos.form')
+    @include('student.form')
     <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 <br>
