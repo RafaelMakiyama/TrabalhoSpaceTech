@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        {{-- <div class="row">
+         <div class="row">
             <div class="col">
                 <table class="table table-bordered">
                     <thead>
@@ -80,7 +80,7 @@
                 </table>
             </div>
         </div>
-      <br> --}}
+      <br>
       <a href="{{route('cursos.index')}}" class="btn btn-secondary">Voltar</a>
     </div>
   </div>

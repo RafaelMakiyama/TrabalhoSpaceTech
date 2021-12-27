@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CourseRequest;
 use App\Models\Course;
+use App\Models\Lesson;
 use Database\Seeders\CourseSeeder;
 use Illuminate\Http\Request;
 
@@ -51,9 +52,10 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
+        $lessons = Lesson::where('course_id', $course->course_id)->get();
 
         if($course){
-            return view('courses.show', compact('course'));
+            return view('courses.show', compact('course', 'lessons'));
         }
 
         return redirect()->back()->with('erro', 'Curso não encontrado! :(');
