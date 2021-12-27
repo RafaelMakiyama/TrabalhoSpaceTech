@@ -14,7 +14,8 @@ class LessonController extends Controller
      */
     public function index()
     {
-        //
+        $lessons = Lesson::with('User')->paginate(8);
+        return view ('lesson.index', compact('lessons'));
     }
 
     /**
