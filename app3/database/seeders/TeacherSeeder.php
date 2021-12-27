@@ -13,6 +13,6 @@ class TeacherSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Teacher::factory(10)->create();
     }
 }
