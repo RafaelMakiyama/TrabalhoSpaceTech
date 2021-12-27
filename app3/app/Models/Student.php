@@ -37,7 +37,6 @@ class Student extends Model
 
     public function createStudent($data)
     {
-        // dd('opa');
         $generatePassword = new GenerateStandardPassword();
 
         /**
@@ -51,12 +50,10 @@ class Student extends Model
         ]);        
 
         $course = Course::find($data->course_id);
-        $studentsInCurse = Student::where('course_id', '=' , $data->course_id)->count();
-        // dd($studentsInCurse);
-        if($course->quanties_max_students <= $studentsInCurse){
+        $studentsInCurse = Student::where('course_id', '=' , $data->course_id)->count();        
+        if($course->quantities_max_students <= $studentsInCurse){
             return redirect()->back()->with('error', "Quantidade máxima de alunos no curso {$course->name} atingida!");
         }
-        // dd($data);
         return $user->students()->create([
             'registration' => $data->registration,
             'fullname' => $data->fullname,
@@ -82,7 +79,7 @@ class Student extends Model
         if($student->course_id != $data->course_id){
             $course = Course::find($data->course_id);
             $studentsInCurse = Student::where('course_id', $data->course_id)->count();
-            if($course->quanties_max_students <= $studentsInCurse){
+            if($course->quantities_max_students <= $studentsInCurse){
                 return redirect()->back()->with('error', "Quantidade máxima de alunos no curso {$course->name} atingida!");
             }
         }

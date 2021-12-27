@@ -38,7 +38,7 @@
 </div>
 <div class="mb-3">
     <label for="cpf" class="form-label">CPF</label>
-    <input type="number" class="form-control" name="cpf" 
+    <input type="number" class="form-control" name="cpf" min="0" 
             value="{{$student->cpf ?? old('cpf') }}"
             placeholder="Informe o CPF do Aluno">
 </div>

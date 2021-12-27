@@ -45,7 +45,6 @@ class StudentController extends Controller
      */
     public function store(StoreUpdateStudent $request)
     {
-        // dd($request->all());
         DB::beginTransaction();
         try{
             $student = new Student();
@@ -57,7 +56,7 @@ class StudentController extends Controller
             return redirect()->back()->with('message');
         }
         
-        return redirect()->route('alunos.index')->with('message',"O aluno $student->fullname foi criado com sucesso!");
+        return redirect()->route('alunos.index')->with('message',"O aluno $request->fullname foi criado com sucesso!");
     }
 
     /**
