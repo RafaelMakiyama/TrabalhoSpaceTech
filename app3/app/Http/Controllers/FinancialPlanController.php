@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateFinancialPlan;
 use App\Models\FinancialPlan;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class FinancialPlanController extends Controller
      */
     public function index()
     {
-        //
+        $financialPlan = FinancialPlan::paginate(8);
+        return view('planosFinanceiros.index', compact('financialPlan'));
     }
 
     /**
@@ -24,29 +26,33 @@ class FinancialPlanController extends Controller
      */
     public function create()
     {
-        //
+        return view('planosFinanceiros.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\StoreUpdateFinancialPlan  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateFinancialPlan $request)
     {
-        //
+        $financialPlan = financialPlan::create($request->all());
+        if($financialPlan){
+            return redirect()->route('planos-financeiro.index')->with('message', "Plano {$financialPlan->name} cadastrado com sucesso!");
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FinancialPlan  $financialPlan
+     * @param  \App\Models\FinancialPlan  $FinancialPlan
      * @return \Illuminate\Http\Response
      */
-    public function show(FinancialPlan $financialPlan)
+    public function show($id)
     {
-        //
+        $financialPlan = FinancialPlan::find($id);
+        return view('planosFinanceiros.show', compact('financialPlan'));
     }
 
     /**
@@ -55,21 +61,26 @@ class FinancialPlanController extends Controller
      * @param  \App\Models\FinancialPlan  $financialPlan
      * @return \Illuminate\Http\Response
      */
-    public function edit(FinancialPlan $financialPlan)
+    public function edit($id)
     {
-        //
+        $financialPlan = FinancialPlan::find($id);
+        return view('planosFinanceiros.update', compact('financialPlan'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\StoreUpdateFinancialPlan  $request
      * @param  \App\Models\FinancialPlan  $financialPlan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FinancialPlan $financialPlan)
+    public function update(StoreUpdateFinancialPlan $request, $id)
     {
-        //
+        $financialPlan = FinancialPlan::find($id);
+        $financialPlan->update($request->all());
+        if($financialPlan){
+            return redirect()->route('planos-financeiro.index')->with('message', "Plano {$financialPlan->name} atualizado com sucesso!");
+        }        
     }
 
     /**
@@ -78,8 +89,12 @@ class FinancialPlanController extends Controller
      * @param  \App\Models\FinancialPlan  $financialPlan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FinancialPlan $financialPlan)
+    public function destroy($id)
     {
-        //
+        $financialPlan = FinancialPlan::find($id);
+        $financialPlan->delete();
+        if($financialPlan){
+            return redirect()->route('planos-financeiro.index')->with('message', "Plano {$id} excluído com sucesso!");
+        }
     }
 }

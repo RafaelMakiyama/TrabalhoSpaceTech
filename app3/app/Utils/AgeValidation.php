@@ -10,16 +10,16 @@ class AgeValidation
         $param2 = $parameters[1];
         $birthday = \DateTime::createFromFormat('Y-m-d', $value);
         $financial_responsable = $this->getParamValue($validator->getData(), $param1);
-        $name = $this->getParamValue($validator->getData(), $param2);
+        $fullname = $this->getParamValue($validator->getData(), $param2);
         $now = new \DateTime();
         $age = $now->diff($birthday);
         if($age->y < 18){
-            if(($financial_responsable == $name)||($financial_responsable == null)){
+            if(($financial_responsable == $fullname)||($financial_responsable == null)){
                 return false;
             }
         }else{
             if($financial_responsable == null){
-                $financial_responsable = $name;
+                return false;
             }
         }
         return true;
@@ -30,6 +30,13 @@ class AgeValidation
         if(in_array($param, array_keys($data)))
             return $data[$param];
         throw new \Exception("O parâmetro $param não foi encontrado.");
+    }
+
+    protected function setParamValue($validator, $param, $value)
+    {
+        $valores=$validator->getData();                
+        $valores['financial_responsable'] = $value;                
+        $validator->setData($valores);
     }
 }
 ?>
