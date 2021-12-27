@@ -14,7 +14,10 @@ class FinancialPlanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'discount' => $this->faker->numberBetween(1,100),
+            'observation' => $this->faker->text()
+
         ];
     }
 }

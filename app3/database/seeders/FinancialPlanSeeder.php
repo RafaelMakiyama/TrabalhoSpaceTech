@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\FinancialPlan;
 use Illuminate\Database\Seeder;
 
 class FinancialPlanSeeder extends Seeder
@@ -13,6 +14,6 @@ class FinancialPlanSeeder extends Seeder
      */
     public function run()
     {
-        //
+        FinancialPlan::factory(5)->create();
     }
 }
