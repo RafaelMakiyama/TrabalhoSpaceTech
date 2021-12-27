@@ -29,7 +29,7 @@
                     <td>{{ $lesson->course->name}} </td>
                     
                     <td>
-                        <a href="{{ route('lesson.show', $lesson->id) }}"><button type="button" class="btn btn-primary"><i
+                        <a href="{{ route('aulas.show', $lesson->id) }}"><button type="button" class="btn btn-primary"><i
                                     class="far fa-eye"></i></button></a>
                         <a href="{{ route('aulas.edit', $lesson->id) }}"><button type="button" class="btn btn-primary"><i
                                     class="far fa-edit"></i></button></a>

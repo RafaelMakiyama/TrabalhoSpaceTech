@@ -24,7 +24,7 @@ class Lesson extends Model
         return $this->hasOne(Teacher::class, 'id','teacher_id');
     }
 
-    public function Courses(){
-        return $this->hasOne(Courses::class,'id','course_id');
+    public function Course(){
+        return $this->hasOne(Course::class,'id','course_id');
     }
 }
