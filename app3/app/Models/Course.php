@@ -11,7 +11,7 @@ class Course extends Model
 
     protected $fillable = [
         'name',
-        'quanties_max_students',
+        'quantities_max_students',
         'description',
         'category',
         'monthly',
@@ -19,6 +19,6 @@ class Course extends Model
     ];
 
     public function Student(){
-        return $this->belongsTo(Student::class);
+         return $this->belongsTo(Student::class);
     }
 }
