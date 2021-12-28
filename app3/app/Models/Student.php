@@ -85,7 +85,7 @@ class Student extends Model
                 return redirect()->back()->with('error', "Quantidade máxima de alunos no curso {$course->name} atingida!");
             }
         }
-        $student->update([
+        return $student->update([
             'registration' => $data->registration,
             'fullname' => $data->fullname,
             'birthday' => $data->birthday,
