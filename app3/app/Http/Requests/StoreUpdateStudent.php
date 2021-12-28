@@ -25,8 +25,7 @@ class StoreUpdateStudent extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'name' => 'required|min:3|max:255',
+        $rules = [            
             'registration' => 'required|string|max:45',
             'fullname' => 'required|string|max:45',
             'birthday' => 'required|date|age:financial_responsable,fullname',
@@ -41,14 +40,15 @@ class StoreUpdateStudent extends FormRequest
             case 'POST':
             {
                 $rules_plus = [
-                    'email' => 'required|email|unique:users,email'
+                    'email' => 'required|email|unique:users,email',
+                    'name' => 'required|min:3|max:255'
                 ];                
                 return $rules = array_merge($rules, $rules_plus);
             }
             case 'PUT' : {
                 $rules_plus = [
                     'email' => 'required|email|'.Rule::unique('users', 'email')->ignore($this->user_id),
-                    'name' => 'required|name|'.Rule::unique('users', 'name')->ignore($this->user_id)
+                    'name' => 'required|string|'.Rule::unique('users', 'name')->ignore($this->user_id)
                 ];
                 return $rules = array_merge($rules, $rules_plus);
             }
