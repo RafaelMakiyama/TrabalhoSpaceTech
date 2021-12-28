@@ -25,9 +25,9 @@ class LessonRequest extends FormRequest
     {
         return [
             "num_lesson"                    => "required|numeric",
-            "theme"                    => "required|min:2",
-            "duration"                    => "required|min:2",
-            "obs"                    => "required|min:2",
+            "theme"                    => "required",
+            "duration"                    => "required",
+            "obs"                    => "required",
             "teacher_id"                    => "required",
             "course_id"                    => "required"
         ];
@@ -35,15 +35,12 @@ class LessonRequest extends FormRequest
 
     public function messages(){
         return [
-            "num_lesson.required"                   => "Esse campo é obrigatório!",
-            "num_lesson.min:2"                      => "Nome deve ter no mínimo 2 caracteres!",
-            "theme.required"                        => "Esse campo é obrigatório!",
-            "theme.min:2"                           => "Theme deve ter no mínimo 2 caracteres!",
-            "duration.required"                     => "Esse campo é obrigatório",
-            "obs.required"                          => "Esse campo é obrigatório!",
-            "obs.min:2"                             => "obs deve ter no mínimo 2 caracteres!",            
-            "teacher_id.required"                   => "Esse campo é obrigatório!",
-            "teacher_id.required"                   => "Esse campo é obrigatório!",
+            "num_lesson.required"                   => "Campo 'Aula de numero' é obrigatório!",
+            "theme.required"                        => "Campo 'Tema' é obrigatório!",
+            "duration.required"                     => "Campo 'Duracão' é obrigatório!",
+            "obs.required"                          => "Campo 'Observação' é obrigatório!",           
+            "teacher_id.required"                   => "Selecione um  Professor!",
+            "course_id.required"                   => "Selecione um Curso!",
 
         ];
     }
