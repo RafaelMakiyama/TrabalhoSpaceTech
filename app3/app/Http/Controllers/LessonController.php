@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LessonRequest;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class LessonController extends Controller
 {
@@ -25,7 +28,7 @@ class LessonController extends Controller
      */
     public function create()
     {
-        //
+        return view('lesson.create');
     }
 
     /**
@@ -34,9 +37,22 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LessonRequest $request)
     {
-        //
+        // $lesson = Lesson::create($request->all());
+        // return redirect()->route('aulas.index');
+
+        DB::beginTransaction();        
+        try{
+            $lesson = new Lesson();
+            $lesson = $lesson->cadastrarAulas($request);
+            DB::commit();
+        } catch(\Exception $e){
+            DB::rollBack();
+            Log::channel('lesson')->warning('Falha na criação da aula', [$e]);
+            return view('lesson.create')->with('message');
+        }        
+        return redirect()->route('aulas.index')->with('message',"A aula $lesson->num_lesson  foi criada com sucesso!");       
     }
 
     /**
@@ -60,9 +76,10 @@ class LessonController extends Controller
      * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lesson $lesson)
+    public function edit($id)
     {
-        //
+        $lesson = Lesson::find($id);
+        return view('lesson.update', compact('lesson'));
     }
 
     /**
@@ -72,9 +89,14 @@ class LessonController extends Controller
      * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lesson $lesson)
+    public function update(Request $request, $id)
     {
-        //
+        $lesson = Lesson::find($id);
+        if(!$lesson){
+            return redirect()->back();
+        }
+        $lesson->update($request->all());
+        return redirect()->route('aulas.index')->with('message', "Aula numero {$lesson->num_lesson} atualizado com sucesso!");
     }
 
     /**
@@ -83,8 +105,13 @@ class LessonController extends Controller
      * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lesson $lesson)
+    public function destroy($id)
     {
-        //
+        $lesson = Lesson::find($id);
+        if(!$lesson){
+            return redirect()->back();
+        }
+        $lesson->delete();
+        return redirect()->route('aulas.index')->with('message', "Aula numero {$lesson->num_lesson} deletada com sucesso!");
     }
 }

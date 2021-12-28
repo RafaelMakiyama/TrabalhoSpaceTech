@@ -37,7 +37,7 @@
                 <p class="card-text">Professor:</p>
             </div>
             <div class="col">                
-                <h5 class="card-title">{{$lesson->teacher->name}}</h5>
+                <h5 class="card-title">{{$lesson->teacher->fullname}}</h5>
             </div>
         </div>
 

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Services\GenerateStandardPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Lesson extends Model
 {
@@ -16,9 +18,24 @@ class Lesson extends Model
         'duration',
         'obs',
         'cpf',
+        'teacher_id',
         'course_id',
-        'financial_plan_id'
+        
     ]; 
+
+    public function cadastrarAulas($dados){
+
+        // dd($dados);
+        return $lesson = Lesson::create([
+            'num_lesson' => $dados->num_lesson,
+            'theme' => $dados->theme,
+            'duration' => $dados->duration,
+            'obs' => $dados->obs,
+            'teacher_id' => $dados->teacher_id,
+            'course_id' => $dados->course_id
+        ]);
+      
+    }
 
     public function Teacher(){
         return $this->hasOne(Teacher::class, 'id','teacher_id');

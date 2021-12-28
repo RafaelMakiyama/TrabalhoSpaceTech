@@ -25,7 +25,7 @@
                     <td>{{ $lesson->theme}}</td>
                     <td>{{ $lesson->duration }} </td>
                     <td>{{ $lesson->obs}} </td>
-                    <td>{{ $lesson->teacher->name}} </td>
+                    <td>{{ $lesson->teacher->fullname}} </td>
                     <td>{{ $lesson->course->name}} </td>
                     
                     <td>
