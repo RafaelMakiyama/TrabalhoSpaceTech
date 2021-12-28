@@ -94,6 +94,47 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Cursos por status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/cursos/Ativado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cursos",
+						"Ativado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cursos Alunos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/cursos/3/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cursos",
+						"3",
+						"alunos"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\CourseController;
 use App\Http\Controllers\api\StudentController;
 use App\Http\Controllers\api\TeacherController;
 use Illuminate\Http\Request;
@@ -23,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('/alunos', StudentController::class);
 Route::get('/professores', [TeacherController::class, 'index'])->name('professores.index');
 Route::get('/professores/{professor}', [TeacherController::class, 'show'])->name('professores.show');
+Route::get('/cursos/{status}', [CourseController::class, 'courses_status'])->name('cursos.status');
+Route::get('/cursos/{curso}/alunos', [CourseController::class, 'courses_students'])->name('cursos.alunos');
