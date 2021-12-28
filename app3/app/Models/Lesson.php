@@ -24,8 +24,7 @@ class Lesson extends Model
     ]; 
 
     public function cadastrarAulas($dados){
-
-        // dd($dados);
+        
         return $lesson = Lesson::create([
             'num_lesson' => $dados->num_lesson,
             'theme' => $dados->theme,

@@ -41,9 +41,6 @@ class LessonController extends Controller
      */
     public function store(LessonRequest $request)
     {
-        // $lesson = Lesson::create($request->all());
-        // return redirect()->route('aulas.index');
-
         DB::beginTransaction();        
         try{
             $lesson = new Lesson();
