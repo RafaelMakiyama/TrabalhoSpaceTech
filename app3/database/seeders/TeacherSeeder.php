@@ -13,6 +13,10 @@ class TeacherSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Teacher::factory(10)->create();
+        $teachers = \App\Models\Teacher::factory(10)->create();
+        foreach($teachers as $teacher){
+            $teacher->user->assignRole('teacher');
+        }
+
     }
 }

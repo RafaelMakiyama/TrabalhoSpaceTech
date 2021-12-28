@@ -24,9 +24,21 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::resource('/professor', TeacherController::class);
-Route::resource('alunos', StudentController::class);
-Route::resource('cursos', CourseController::class);
-Route::resource('planos-financeiro', FinancialPlanController::class);
-Route::resource('aulas', LessonController::class);
+Route::middleware('auth')->group(function (){
+    Route::middleware(['role:admin'])->group(function(){
+        Route::resource('/professor', TeacherController::class);
+        Route::resource('alunos', StudentController::class);
+        Route::resource('cursos', CourseController::class);
+        Route::resource('planos-financeiro', FinancialPlanController::class);
+        Route::resource('aulas', LessonController::class);
+    });
+    Route::middleware(['role:teacher'])->group(function(){
+       
+    });
+    Route::middleware(['role:student'])->group(function(){
+        Route::get('/cursos-estudante',[StudentController::class, 'profile'])->name('cursos-estudante');
+    });  
+});
+
+
 require __DIR__.'/auth.php';

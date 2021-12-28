@@ -47,7 +47,9 @@ class Student extends Model
             'name' => $data->name,
             'email' => $data->email,
             'password' => Hash::make($generatePassword($data->name, $data->registration)),
-        ]);        
+        ]);
+    
+        $user->assignRole('student');
 
         $course = Course::find($data->course_id);
         $studentsInCurse = Student::where('course_id', '=' , $data->course_id)->count();        

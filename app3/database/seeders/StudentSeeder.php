@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class StudentSeeder extends Seeder
 {
@@ -14,6 +15,9 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Student::factory(50)->create();
+        $students = \App\Models\Student::factory(50)->create();
+        foreach($students as $student){
+            $student->user->assignRole('student');
+        }
     }
 }

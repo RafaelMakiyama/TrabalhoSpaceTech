@@ -9,6 +9,7 @@ use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -121,5 +122,12 @@ class StudentController extends Controller
         if($student){
             return redirect()->route('student.index')->with('message', "Aluno {$id} excluído com sucesso!");
         }
+    }
+
+    public function profile(){
+        $user_id = Auth::id();
+        $student = Student::where('user_id', $user_id)->with('user')->with('course')->with('financialPlan')->first();
+        $lessons = Lesson::where('course_id', $student->course_id)->get();
+        return view('student.profile-student', compact('student', 'lessons'));
     }
 }
