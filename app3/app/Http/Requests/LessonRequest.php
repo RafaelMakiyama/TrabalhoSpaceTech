@@ -24,12 +24,12 @@ class LessonRequest extends FormRequest
     public function rules()
     {
         return [
-            "num_lesson"                    => "required|numeric",
-            "theme"                    => "required",
-            "duration"                    => "required",
-            "obs"                    => "required",
-            "teacher_id"                    => "required",
-            "course_id"                    => "required"
+            "num_lesson"                            => "required|numeric",
+            "theme"                                 => "required",
+            "duration"                              => "required",
+            "obs"                                   => "required",
+            "teacher_id"                            => "required",
+            "course_id"                             => "required"
         ];
     }
 
