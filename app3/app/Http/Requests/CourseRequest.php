@@ -29,7 +29,6 @@ class CourseRequest extends FormRequest
             "description"             => "required|min:2",
             "category"                => "required|min:2",
             "monthly"                 => "required|numeric",
-            "status"                  => "required|min:2"
         ];
     }
 
@@ -45,8 +44,6 @@ class CourseRequest extends FormRequest
             "category.min:2"                    => "Categoria deve ter no mínimo 2 caracteres!",
             "monthly.required"                  => "Esse campo é obrigatório!",
             "monthly.numeric"                   => "Mensal deve ser um número!",
-            "status.required"                   => "Esse campo é obrigatório!",
-            "status.min:2"                      => "Status deve ter no mínimo 2 caracteres!",
         ];
     }
 }
