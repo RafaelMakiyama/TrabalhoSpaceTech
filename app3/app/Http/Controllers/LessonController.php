@@ -41,9 +41,6 @@ class LessonController extends Controller
      */
     public function store(LessonRequest $request)
     {
-        // $lesson = Lesson::create($request->all());
-        // return redirect()->route('aulas.index');
-
         DB::beginTransaction();        
         try{
             $lesson = new Lesson();
@@ -80,8 +77,10 @@ class LessonController extends Controller
      */
     public function edit($id)
     {
+        $teachers = Teacher::all();
+        $courses = Course::all();
         $lesson = Lesson::find($id);
-        return view('lesson.update', compact('lesson'));
+        return view('lesson.update', compact('lesson','teachers','courses'));
     }
 
     /**

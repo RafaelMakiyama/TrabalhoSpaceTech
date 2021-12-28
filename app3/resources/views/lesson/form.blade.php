@@ -33,8 +33,6 @@
 
 <div class="mb-3">
   <label for="exampleInputPassword1" class="form-label">Selecione o Curso: </label>
-  <!-- <input type="text" class="form-control" name="course_id" placeholder="Informe o curso" value="{{  $lesson->course_id ?? old('course_id') }}" >
-   -->
   <select class="form-select" name="course_id" aria-label="Default select example">
         <option value="">Selecione o curso</option>
         @foreach($courses as $course)
