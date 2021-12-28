@@ -6,25 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "Alunos index",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost/api/alunos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"alunos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Professores index",
 			"request": {
 				"method": "GET",
@@ -76,26 +57,6 @@
 						"api",
 						"professores",
 						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Alunos show",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost/api/alunos/53",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"api",
-						"alunos",
-						"53"
 					]
 				}
 			},
