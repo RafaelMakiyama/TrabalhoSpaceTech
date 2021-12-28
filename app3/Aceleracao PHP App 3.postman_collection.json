@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "90243c4d-1776-4e1e-a3fe-452b574fe500",
+		"name": "Aceleracao PHP App 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Alunos index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Professores index",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/professores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"professores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Professores show",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/professores/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"professores",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alunos show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/alunos/53",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"alunos",
+						"53"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
