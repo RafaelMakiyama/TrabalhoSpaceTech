@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LessonRequest;
-use App\Models\Lesson;
+use App\Models\{Lesson, Teacher, Course};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -28,7 +28,9 @@ class LessonController extends Controller
      */
     public function create()
     {
-        return view('lesson.create');
+        $teachers = Teacher::all();
+        $courses = Course::all();
+        return view('lesson.create', compact('teachers', 'courses'));
     }
 
     /**

@@ -47,7 +47,6 @@ class CourseRequest extends FormRequest
             "monthly.numeric"                   => "Mensal deve ser um número!",
             "status.required"                   => "Esse campo é obrigatório!",
             "status.min:2"                      => "Status deve ter no mínimo 2 caracteres!",
-
         ];
     }
 }
