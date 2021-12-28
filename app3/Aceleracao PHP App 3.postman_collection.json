@@ -36,7 +36,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/professores",
+					"raw": "http://localhost/api/professores?campos=id,fullname,scholarity",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -44,6 +44,12 @@
 					"path": [
 						"api",
 						"professores"
+					],
+					"query": [
+						{
+							"key": "campos",
+							"value": "id,fullname,scholarity"
+						}
 					]
 				}
 			},
@@ -96,12 +102,39 @@
 			"response": []
 		},
 		{
+			"name": "Alunos aulas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/alunos/3/aulas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"alunos",
+						"3",
+						"aulas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Cursos por status",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/api/cursos/Ativado",
+					"raw": "http://localhost/api/cursos/Desativado?campos=id,status,name",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -109,7 +142,13 @@
 					"path": [
 						"api",
 						"cursos",
-						"Ativado"
+						"Desativado"
+					],
+					"query": [
+						{
+							"key": "campos",
+							"value": "id,status,name"
+						}
 					]
 				}
 			},
@@ -119,18 +158,30 @@
 			"name": "Cursos Alunos",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost/api/cursos/3/alunos",
+					"raw": "http://localhost/api/alunos/curso/6?campos=id,fullname",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"cursos",
-						"3",
-						"alunos"
+						"alunos",
+						"curso",
+						"6"
+					],
+					"query": [
+						{
+							"key": "campos",
+							"value": "id,fullname"
+						}
 					]
 				}
 			},
