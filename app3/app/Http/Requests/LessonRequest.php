@@ -40,7 +40,7 @@ class LessonRequest extends FormRequest
             "duration.required"                     => "Campo 'Duracão' é obrigatório!",
             "obs.required"                          => "Campo 'Observação' é obrigatório!",           
             "teacher_id.required"                   => "Selecione um  Professor!",
-            "course_id.required"                   => "Selecione um Curso!",
+            "course_id.required"                    => "Selecione um Curso!",
 
         ];
     }

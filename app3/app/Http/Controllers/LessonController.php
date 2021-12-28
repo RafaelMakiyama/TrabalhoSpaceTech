@@ -80,8 +80,10 @@ class LessonController extends Controller
      */
     public function edit($id)
     {
+        $teachers = Teacher::all();
+        $courses = Course::all();
         $lesson = Lesson::find($id);
-        return view('lesson.update', compact('lesson'));
+        return view('lesson.update', compact('lesson','teachers','courses'));
     }
 
     /**
