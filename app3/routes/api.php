@@ -28,4 +28,4 @@ Route::get('/professores/{professor}', [TeacherController::class, 'show'])->name
 Route::get('/cursos/{status}', [CourseController::class, 'courses_status'])->name('cursos.status');
 Route::get('/cursos/{curso}/alunos', [CourseController::class, 'courses_students'])->name('cursos.alunos');
 Route::get('/aulas', [LessonController::class, 'index'])->name('aulas.show');
-Route::get('/aulas/{curso}', [LessonController::class, 'show'])->name('aulas.show');
+Route::get('/aulas/curso/{curso}', [LessonController::class, 'lesson_course'])->name('aulas_curso.show');
