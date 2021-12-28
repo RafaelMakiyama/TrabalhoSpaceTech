@@ -24,9 +24,9 @@ class TeacherController extends Controller
     public function index(Request $request)
     {
         $teachers = $this->model;
-        $teacherRepository = new TeacherRepository($teachers);
         if($request->has('campos'))
         {
+            $teacherRepository = new TeacherRepository($teachers);
             $teachers = $teacherRepository->filterFields($request);
         }
                 
