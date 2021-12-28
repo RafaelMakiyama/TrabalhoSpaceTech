@@ -19,7 +19,7 @@ class CourseFactory extends Factory
             'description' => $this->faker->text(),
             'category' => $this->faker->word(1),
             'monthly' => $this->faker->numberBetween(1,1000),
-            'status' => $this->faker->word()
+            'status' => $this->faker->randomElement($array = array ('Ativado','Desativado'))
         ];
     }
 }

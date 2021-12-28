@@ -28,7 +28,7 @@ class TeacherRequest extends FormRequest
             'fullname' => 'required|min:5|max:60',
             'registration'=>'required',
             'competence'=> 'required|min:2|max:30',
-            'scholarity' => 'required|min:5:max:30'
+            'scholarity' => 'required|min:5|max:30'
         ];
 
 
@@ -49,7 +49,7 @@ class TeacherRequest extends FormRequest
 
                 $rules2 = [
                     'email' => 'required|email|'.Rule::unique('users', 'email')->ignore($this->user_id),
-                    'name' => 'required|min:3|max:255|' .Rule::unique('users', 'name')->ignore($this->name) ];
+                    'name' => 'required|min:3|max:255|' .Rule::unique('users', 'name')->ignore($this->user_id) ];
 
                  $rules = array_merge($rules, $rules2);
                  return $rules;
