@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\StudentController;
+use App\Http\Controllers\api\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('/alunos', StudentController::class);
+Route::get('/professores', [TeacherController::class, 'index'])->name('professores.index');
+Route::get('/professores/{professor}', [TeacherController::class, 'show'])->name('professores.show');
