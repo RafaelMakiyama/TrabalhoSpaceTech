@@ -40,6 +40,7 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
         $course = Course::create($request->all());
+        dd($course);
         return redirect()->route('cursos.index')->with('message', "Curso de {$course->name} cadastrado com sucesso");
     }
 
@@ -52,7 +53,7 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
-        $lessons = Lesson::where('course_id', $course->course_id)->get();
+        $lessons = Lesson::where('course_id', $course->id)->get();
 
         if($course){
             return view('courses.show', compact('course', 'lessons'));

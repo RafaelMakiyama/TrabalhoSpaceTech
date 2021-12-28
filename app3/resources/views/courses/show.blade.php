@@ -64,7 +64,6 @@
                         <th scope="col">Tema</th>
                         <th scope="col">Número</th>
                         <th scope="col">Duração</th>
-                        <th scope="col">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
