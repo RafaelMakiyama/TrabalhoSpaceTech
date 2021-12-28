@@ -4,6 +4,8 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\{ Lesson, Student };
+use App\Repository\StudentRepository;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -18,9 +20,15 @@ class StudentController extends Controller
         return response()->json($students);
     }
 
-    public function students_by_course($curso)
+    public function students_by_course(Request $request, $curso)
     {
-        $students = Student::where('course_id', '=', $curso)->get();
+        $students = new Student; 
+        if($request->has('campos'))
+        {
+            $studentRepository = new StudentRepository($students);
+            $students = $studentRepository->filterFields($request);
+        }
+        $students = $students->where('course_id', '=', $curso)->get();
         return response()->json($students);
     }
 
