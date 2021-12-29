@@ -32,10 +32,9 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/professores?campos=id,fullname,scholarity",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/professores?campos=id,fullname,scholarity",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -78,10 +77,9 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/professores/1",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/professores/1",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -119,10 +117,9 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/alunos/3/aulas",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/alunos/3/aulas",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -155,10 +152,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/api/cursos/Desativado?campos=id,status,name",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/cursos/Desativado?campos=id,status,name",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -202,10 +198,9 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/alunos/curso/6?campos=id,fullname",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/alunos/curso/6?campos=id,fullname",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -222,6 +217,73 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Aulas por Curso",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin@admin.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/aulas/curso/7",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"aulas",
+						"curso",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost"
 		}
 	]
 }
