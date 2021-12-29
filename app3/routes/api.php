@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('validarpermissao')->group(function () {
+Route::middleware('auth.basic')->group(function () {
     
     Route::get('/alunos/curso/{curso}', [StudentController::class,'students_by_course'])->name('alunos.curso');
     Route::get('/alunos/{aluno}/aulas', [StudentController::class,'lessons_by_student'])->name('alunos.aulas');
