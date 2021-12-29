@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TeacherRequest;
+use App\Models\Lesson;
 use App\Models\Teacher;
 use App\Models\User;
 use App\Services\GenerateStandardPassword;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -93,7 +95,6 @@ class TeacherController extends Controller
         DB::beginTransaction();        
         try{
             $teacher = new Teacher();
-            echo('aqui');
             $teacher = $teacher->updateTeacher($request);
 
             if(!$teacher):
@@ -126,4 +127,11 @@ class TeacherController extends Controller
         $teacher->delete();
         return redirect()->route('professor.index')->with('message', "Professor {$teacher->name} deletado com sucesso");
     }
+
+    public function listAllLessonsById(){
+        $teacher = auth()->user()->teachers->first();
+        $lessons = Lesson::where('teacher_id', $teacher->id)->with('course')->get();
+        return view('teacher.show-lesson', compact('teacher','lessons'));
+    }
+    
 }

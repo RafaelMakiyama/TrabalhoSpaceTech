@@ -33,12 +33,13 @@ Route::middleware('auth')->group(function (){
         Route::resource('aulas', LessonController::class);
     });
     Route::middleware(['role:teacher'])->group(function(){
-       
+        Route::get('/listar-aulas',[TeacherController::class, 'listAllLessonsById'])->name('listar.aulas');
+        Route::get('/criar-aula',[LessonController::class, 'createByTeacher'])->name('criar.aula');
+        Route::post('/aulas/storeByTeacher',[LessonController::class, 'storeByTeacher'])->name('aulas.storeByTeacher');
     });
     Route::middleware(['role:student'])->group(function(){
         Route::get('/cursos-estudante',[StudentController::class, 'profile'])->name('cursos-estudante');
     });  
 });
-
 
 require __DIR__.'/auth.php';

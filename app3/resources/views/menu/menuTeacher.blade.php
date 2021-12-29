@@ -3,15 +3,9 @@
     @auth
         <li><a class="{{Route::is('home') ? 'active': ''}}" href="{{route('home')}}">Início</a></li>
         <li><a class="{{(
-            Route::is('professor.index')
-            ) ? 'active': ''}}" href="{{route('professor.index')}}">Visualizar aulas ministradas</a></li>
-
-        <li><a class="{{(
-            Route::is('alunos.index')||
-            Route::is('alunos.create')||
-            Route::is('alunos.edit')||
-            Route::is('alunos.show')
-            ) ? 'active': ''}}" href="{{route('alunos.index')}}">Visualizar cursos ministrados</a></li>
+            Route::is('listar.aulas')||
+            Route::is('criar.aula')
+            ) ? 'active': ''}}" href="{{route('listar.aulas')}}">Visualizar aulas ministradas</a></li>
 
         <li style="float: right">
             <form action="{{route('logout')}}" method="post">

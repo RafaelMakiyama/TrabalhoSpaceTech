@@ -33,6 +33,12 @@ class LessonController extends Controller
         return view('lesson.create', compact('teachers', 'courses'));
     }
 
+    public function createByTeacher(){
+        $teacher = auth()->user()->teachers->first();
+        $courses = Course::where('status','=','ativado')->get();
+        return view('lesson.create-teacher', compact('teacher','courses'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -52,6 +58,21 @@ class LessonController extends Controller
             return view('lesson.create')->with('message');
         }        
         return redirect()->route('aulas.index')->with('message',"A aula $lesson->num_lesson  foi criada com sucesso!");       
+    }
+
+    public function storeByTeacher(LessonRequest $request)
+    {
+        DB::beginTransaction();        
+        try{
+            $lesson = new Lesson();
+            $lesson = $lesson->cadastrarAulas($request);
+            DB::commit();
+        } catch(\Exception $e){
+            DB::rollBack();
+            Log::channel('lesson')->warning('Falha na criação da aula', [$e]);
+            return view('lesson.create')->with('message');
+        }        
+        return redirect()->route('listar.aulas')->with('message',"A aula $lesson->num_lesson  foi criada com sucesso!");       
     }
 
     /**

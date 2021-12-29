@@ -33,7 +33,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $courses = Course::all();
+        $courses = Course::where('status','=','ativado')->get();
         $financialPlans = FinancialPlan::all();
         return view('student.create', compact('courses', 'financialPlans'));
     }
@@ -83,7 +83,7 @@ class StudentController extends Controller
     {
         $student = Student::find($id);
         $user = User::find($student->user_id);
-        $courses = Course::all();
+        $courses = Course::where('status','=','ativado')->get();
         $financialPlans = FinancialPlan::all();
         return view('student.update', compact('student', 'user', 'courses', 'financialPlans'));
     }

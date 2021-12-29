@@ -24,6 +24,9 @@ class Teacher extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function lessons(){
+        return $this->belongsToMany(Lesson::class);
+    }
     public function cadastrarProfessor($dados){
 
         $generatePassword = new GenerateStandardPassword();

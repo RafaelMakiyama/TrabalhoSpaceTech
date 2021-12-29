@@ -107,4 +107,6 @@ class CourseController extends Controller
         $course->delete();
         return redirect()->route('cursos.index')->with('message', "Curso de {$course->name} deletado com sucesso!");
     }
+
+    
 }
