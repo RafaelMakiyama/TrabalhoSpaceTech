@@ -38,8 +38,10 @@ class Teacher extends Model
         $user = User::create([
             'name' => $dados->name,
             'email' => $dados->email,
-            'password' => Hash::make($generatePassword($dados->name, $dados->registration)),
+            'password' => Hash::make($generatePassword($dados->fullname, $dados->registration)),
         ]);
+
+        $user->assignRole('teacher');
 
         return $user->teachers()->create([
             'fullname' => $dados->fullname,

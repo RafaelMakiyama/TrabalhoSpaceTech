@@ -46,7 +46,7 @@ class Student extends Model
         $user = User::create([
             'name' => $data->name,
             'email' => $data->email,
-            'password' => Hash::make($generatePassword($data->name, $data->registration)),
+            'password' => Hash::make($generatePassword($data->fullname, $data->registration)),
         ]);
     
         $user->assignRole('student');
