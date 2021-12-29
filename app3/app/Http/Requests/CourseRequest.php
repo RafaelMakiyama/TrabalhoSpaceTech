@@ -34,15 +34,15 @@ class CourseRequest extends FormRequest
 
     public function messages(){
         return [
-            "name.required"                     => "Esse campo é obrigatório!",
+            "name.required"                     => "O campo nome é obrigatório!",
             "name.min:2"                        => "Nome deve ter no mínimo 2 caracteres!",
-            "quantities_max_students.required"  => "Esse campo é obrigatório!",
+            "quantities_max_students.required"  => "O campo quantidade máxima de estudante é obrigatório!",
             "quantities_max_students.numeric"   => "Quantidade deve ser um número!",
-            "description.required"              => "Esse campo é obrigatório!",
+            "description.required"              => "O campo descrição é obrigatório!",
             "description.min:2"                 => "Descrição deve ter no mínimo 2 caracteres!",
-            "category.required"                 => "Esse campo é obrigatório",
+            "category.required"                 => "O campo categoria é obrigatório",
             "category.min:2"                    => "Categoria deve ter no mínimo 2 caracteres!",
-            "monthly.required"                  => "Esse campo é obrigatório!",
+            "monthly.required"                  => "O campo mensalidade é obrigatório!",
             "monthly.numeric"                   => "Mensal deve ser um número!",
         ];
     }

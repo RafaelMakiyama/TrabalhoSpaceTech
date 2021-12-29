@@ -40,7 +40,6 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
         $course = Course::create($request->all());
-        dd($course);
         return redirect()->route('cursos.index')->with('message', "Curso de {$course->name} cadastrado com sucesso");
     }
 
@@ -60,7 +59,6 @@ class CourseController extends Controller
         }
 
         return redirect()->back()->with('erro', 'Curso não encontrado! :(');
-
     }
 
     /**

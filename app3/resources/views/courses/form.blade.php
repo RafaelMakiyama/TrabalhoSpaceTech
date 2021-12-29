@@ -31,8 +31,10 @@
 </div>
 <div class="mb-3">
     <label  class="form-label">Status</label>
-    <input type="text" class="form-control" name="status"
-            value="{{$course->status ?? old('status') }}"
-            placeholder="Informe o Status do Curso">
+    <select class="form-select" name="status" aria-label="Default select example">
+        <option value=""> Selecione o status</option>      
+        <option value="Ativado" {{ $course->status== 'Ativado'?'selected':''}}>Ativado</option>
+        <option value="Desativado" {{ $course->status== 'Desativado'?'selected':''}}>Desativado</option>  
+    </select>
 </div>
 
