@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TeacherResource;
+use App\Http\Resources\TeacherResourceCollection;
 use App\Models\Teacher;
 use App\Repository\TeacherRepository;
 use Illuminate\Http\Request;
@@ -29,8 +31,7 @@ class TeacherController extends Controller
             $teacherRepository = new TeacherRepository($teachers);
             $teachers = $teacherRepository->filterFields($request);
         }
-                
-        return response()->json($teachers->paginate(10));
+        return new TeacherResourceCollection($teachers->paginate(10));
     }
 
     /**
@@ -45,7 +46,8 @@ class TeacherController extends Controller
         if(!$teacher){
             return response()->json(['message' => 'Professor nao encontrado'], 404);
         }
-        return response()->json($teacher);
+        return new TeacherResource($teacher);
+        
     }
 
 }
