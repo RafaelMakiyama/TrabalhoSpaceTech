@@ -36,8 +36,11 @@
         <li style="float: right">
             <form action="{{route('logout')}}" method="post">
                 @csrf
-                <button type="submit" class="btn btn-danger">Sair</button>
+                <button type="submit" class="btn btn-danger" style="padding: 13px;">Sair</button>
             </form>
+        </li>
+        <li style="float: right">
+            <a href="#">Olá {{Auth::user()->name}}</a>
         </li>
     @else
         <li>
