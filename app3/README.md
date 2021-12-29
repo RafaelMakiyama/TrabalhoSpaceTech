@@ -1,66 +1,151 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Sistema de Gerenciamento de escola
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Descrição do Projeto
+<p>Trabalho do curso SPACE TECH da Soluti Digital.</p>
+<p>Em parceria com a prefeitura de Vila Nova - Goiás, nossa empresa juntamente com o DP
+de Tecnologia e Desenvolvimento abraçamos um projeto que visa atender a uma
+instituição de ensino superior privado que concederá bolsas de estudo com o plano
+financeiro em 100%, ou seja, quando o plano financeiro tiver desconto de 100% a
+mensalidade será gratuita para esse aluno.:</p>
+<br>CRUD de professores
+<br>CRUD de alunos
+<br>CRUD de cursos
+<br>CRUD de planos financeiros
+<br>CRUD de aulas
+<br>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Rotas especificas para a API
+<br>Listagem de professores
+<br>Listagem de alunos por curso
+<br>Listagem de aulas por curso
+<br>Listagem de cursos ativados/desativados
+<br>Listagem de aulas por aluno + valor de mensalidade
+<br>Filtragem de resultados por campos
 
-## Learning Laravel
+## Diagrama de casos de uso
+![Aplicacao](screenshot/caso-de-uso.png)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Inicio da Aplicação
+![Aplicacao](screenshot/login.png)
 
-## Laravel Sponsors
+* Visão do ADMIN
+![Aplicacao](screenshot/tela-admin.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+* Visão do professor
+![Aplicacao](screenshot/tela-professor.png)
 
-### Premium Partners
+* Visão do Estudante
+![Aplicacao](screenshot/tela-estudante.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Pré-requisitos
 
-## Code of Conduct
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Composer](https://getcomposer.org/), [MySql](https://www.mysql.com/), [Apache](https://www.apache.org/) e/ou [Xampp](https://www.apachefriends.org/pt_br/index.html). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 🎲 Rodando o Sistema
 
-## Security Vulnerabilities
+```bash
+# Clone este repositório
+$ git clone <https://github.com/RafaelMakiyama/TrabalhoSpaceTech>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd TrabalhoSpaceTech
 
-## License
+# Vá para a pasta do projeto
+$ cd app3
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Instale as dependências
+$ composer install
+
+# Criar um banco de dados MySql
+
+# Copiar o .env.example para .env e realizar os ajustes de Banco de Dados com o banco criado anteriormente
+
+# Execute o comando para gerar a Key
+$ php artisan key:generate
+
+
+# Rodar as migrations para criar as tabelas no banco de dados
+$ php artisan migrate
+
+# Execute popular a seeder, junto com as regras do setup ACL e as seeders das tabelas
+# Irá ser criado 1 usuário admin, 8 cursos, 5 planos financeiros, 10 professores, 50 alunos e 50 aulas
+$ php artisan db:seed
+
+# Execute a aplicação em modo de desenvolvimento
+$ php artisan serve
+
+# O servidor inciará na porta:8000 
+- acesse <http://localhost:8000>
+```
+## Rotas da API
+
+As rotas da API estão disponibilizadas no arquivo  **Aceleracao PHP App 3.postman_collection**
+
+## Observações
+<ul>
+    <li>Todos os usuários de estudante/professor/admin criados pela seeder, terão como padrão a senha "password"</li>
+    <li>Os alunos e professores criados terão o seguinte padrão de senha: primeiro nome + os 3 primeiros caracteres da matrícula<br></li>
+    <b>Exemplo: </b><br>
+    
+        Nome completo: Fulano da Silva, Matrícula: 1234
+        Senha: Fulano123
+</ul> 
+<ul>
+    <li>O email do admin é <b>admin@admin.com</b> e a senha: <b> password</b</li>
+</ul>
+### 🛠 Tecnologias utilizadas
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [PHP](https://www.php.net/)
+- [Laravel](https://laravel.com/)
+- [Git](https://git-scm.com)
+- [Composer](https://getcomposer.org/)
+- [MySql](https://www.mysql.com/)
+- [Apache](https://www.apache.org/)
+- [Xampp](https://www.apachefriends.org/pt_br/index.html)
+
+<br><br>
+
+### Autores
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/RafaelMakiyama"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/40679056?v=4" width="100px;" alt=""/><br /><sub><b>RafaelMakiyama</b></sub></a><br /><a href="https://github.com/RafaelMakiyama/" title="RafaelMakiyama">🚀</a></td>
+    <td align="center"><a href="https://github.com/evaldorcardoso"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/2326579?v=4" width="100px;" alt=""/><br /><sub><b>evaldorcardoso</b></sub></a><br /><a href="https://github.com/evaldorcardoso" title="evaldorcardoso">🚀</a></td>
+    <td align="center"><a href="https://github.com/Anadinho"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/46759731?v=4" width="100px;" alt=""/><br /><sub><b>GABRIEL ANADINHO</b></sub></a><br /><a href="https://github.com/Anadinho" title="GABRIEL ANADINHO">🚀</a></td>
+    <td align="center"><a href="https://github.com/filipesander"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/73475499?v=4" width="100px;" alt=""/><br /><sub><b>Filipe Sander</b></sub></a><br /><a href="https://github.com/filipesander/" title="Filipe Sander">🚀</a></td>
+    <td align="center"><a href="https://github.com/FelipeSNeves"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59981118?v=4" width="100px;" alt=""/><br /><sub><b>Felipe S. Neves</b></sub></a><br /><a href="https://github.com/FelipeSNeves" title="Felipe S. Neves">🚀</a></td>
+  </tr>  
+</table>
+
+MIT License
+
+Copyright (c) <2021>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
