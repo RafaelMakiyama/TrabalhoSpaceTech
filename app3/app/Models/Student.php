@@ -69,13 +69,14 @@ class Student extends Model
 
     public function updateStudent($data, $id)
     {
+        $generatePassword = new GenerateStandardPassword();
         $student = Student::find($id);
         $user = User::find($student->user_id);
 
         $user = $user->update([
             'name' => $data->name,
             'email' => $data->email,
-            'password' => bcrypt($data->name.'123')            
+            'password' => Hash::make($generatePassword($data->fullname, $data->registration))
         ]);
         
         if($student->course_id != $data->course_id){
