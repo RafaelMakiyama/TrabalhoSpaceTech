@@ -3,15 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateStudent;
-use App\Models\Course;
-use App\Models\FinancialPlan;
-use App\Models\Lesson;
-use App\Models\Student;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
+use App\Models\{Course, FinancialPlan, Lesson, Student, User};
+use Illuminate\Support\Facades\{Auth, DB, Log};
 
 class StudentController extends Controller
 {
