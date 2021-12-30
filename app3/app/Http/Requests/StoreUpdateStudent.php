@@ -73,7 +73,7 @@ class StoreUpdateStudent extends FormRequest
             'fullname.max' => 'O campo nome deve ter no máximo 45 caracteres.',
             'birthday.required' => 'O campo data de nascimento é obrigatório.',
             'birthday.date' => 'O campo data de nascimento deve ser uma data válida.',
-            'birthday.age' => 'Quando menor de 18, deve ser informado o Responsável Financeiro.',
+            'birthday.age' => 'Deve ser informado um Responsável Financeiro.',
             'financial_responsable.required' => 'O campo responsável financeiro é obrigatório.',
             'financial_responsable.string' => 'O campo responsável financeiro deve ser uma string.',
             'financial_responsable.max' => 'O campo responsável financeiro deve ter no máximo 45 caracteres.',
