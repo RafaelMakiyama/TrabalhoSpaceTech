@@ -57,6 +57,18 @@ class StoreUpdateStudent extends FormRequest
         return $rules;
     }
 
+    public function prepareForValidation()
+    {
+        $birthday = \DateTime::createFromFormat('Y-m-d', $this->birthday);        
+        $now = new \DateTime();
+        $age = $now->diff($birthday);
+        if(($age->y > 18)&&($this->financial_responsable == null)){
+            $this->merge([
+                'financial_responsable' => $this->fullname
+            ]);
+        }
+    }
+
     public function messages()
     {
         return [
@@ -73,7 +85,7 @@ class StoreUpdateStudent extends FormRequest
             'fullname.max' => 'O campo nome deve ter no máximo 45 caracteres.',
             'birthday.required' => 'O campo data de nascimento é obrigatório.',
             'birthday.date' => 'O campo data de nascimento deve ser uma data válida.',
-            'birthday.age' => 'Deve ser informado um Responsável Financeiro.',
+            'birthday.age' => 'Quando menor de idade, deve ser informado um Responsável Financeiro.',
             'financial_responsable.required' => 'O campo responsável financeiro é obrigatório.',
             'financial_responsable.string' => 'O campo responsável financeiro deve ser uma string.',
             'financial_responsable.max' => 'O campo responsável financeiro deve ter no máximo 45 caracteres.',

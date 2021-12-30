@@ -32,6 +32,7 @@
 </div>
 <div class="mb-3">
     <label for="financial_responsable" class="form-label">Responsável Financeiro</label>
+    <strong style="font-size:80%">(Somente quando menor de Idade)</strong>
     <input type="text" class="form-control" name="financial_responsable"
             value="{{$student->financial_responsable ?? old('financial_responsable') }}"
             placeholder="Informe o Responsável Financeiro do Aluno">

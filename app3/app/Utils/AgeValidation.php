@@ -17,10 +17,6 @@ class AgeValidation
             if(($financial_responsable == $fullname)||($financial_responsable == null)){
                 return false;
             }
-        }else{
-            if($financial_responsable == null){
-                return false;
-            }
         }
         return true;
     }
@@ -30,13 +26,6 @@ class AgeValidation
         if(in_array($param, array_keys($data)))
             return $data[$param];
         throw new \Exception("O parâmetro $param não foi encontrado.");
-    }
-
-    protected function setParamValue($validator, $param, $value)
-    {
-        $valores=$validator->getData();                
-        $valores['financial_responsable'] = $value;                
-        $validator->setData($valores);
     }
 }
 ?>
