@@ -33,8 +33,13 @@
     <label  class="form-label">Status</label>
     <select class="form-select" name="status" aria-label="Default select example">
         <option value=""> Selecione o status</option>      
-        <option value="Ativado" {{ $course->status== 'Ativado'?'selected':''}}>Ativado</option>
-        <option value="Desativado" {{ $course->status== 'Desativado'?'selected':''}}>Desativado</option>  
+        @isset($course)
+            <option value="Ativado" {{ $course->status== 'Ativado'?'selected':''}}>Ativado</option>
+            <option value="Desativado" {{ $course->status== 'Desativado'?'selected':''}}>Desativado</option>
+        @else
+        <option value="Ativado">Ativado</option>
+        <option value="Desativado">Desativado</option>
+        @endisset
     </select>
 </div>
 

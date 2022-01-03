@@ -29,7 +29,7 @@ class LessonController extends Controller
     public function create()
     {
         $teachers = Teacher::all();
-        $courses = Course::all();
+        $courses = Course::where('status','=','Ativado')->get();
         return view('lesson.create', compact('teachers', 'courses'));
     }
 
